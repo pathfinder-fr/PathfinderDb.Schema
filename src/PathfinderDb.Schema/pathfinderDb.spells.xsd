@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="pathfinderDb.spells"
+           targetNamespace="urn:pathfinderDb"
+           elementFormDefault="qualified"
+           xmlns="urn:pathfinderDb"
+           xmlns:mstns="urn:pathfinderDb"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
+
+  <xs:include schemaLocation="pathfinderDb.core.xsd" />
+
+  <xs:complexType name="spellList">
+    <xs:sequence>
+      <xs:element name="spell">
+        <xs:complexType>
+          <xs:attribute name="id" type="xs:string" />
+          <xs:attribute name="level" type="xs:int" />
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" />
+  </xs:complexType>
+
+  <xs:complexType name="spell">
+    <xs:all minOccurs="1" maxOccurs="1">
+      <xs:element name="name" type="xs:string" />
+      <xs:element name="levels" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="level">
+              <xs:complexType>
+                <xs:attribute name="list" type="xs:string" />
+                <xs:attribute name="level" type="xs:int" />
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="target" type="spellTarget" minOccurs="0" />
+      <xs:element name="range" type="spellRange" minOccurs="0" />
+      <xs:element name="castingTime" type="spellCastingTime" minOccurs="0" />
+      <xs:element name="components" minOccurs="0">
+        <xs:complexType mixed="true">
+          <xs:attribute name="kinds" type="xs:string" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="savingThrow" type="spellSavingThrow" minOccurs="0" />
+      <xs:element name="spellResistance" type="spellResistance" minOccurs="0" />
+      <xs:element name="summary" type="xs:string" minOccurs="0" />
+      <xs:element name="source" type="source" minOccurs="0" />
+      <xs:element name="localization" type="localization" minOccurs="0" />
+    </xs:all>
+    <xs:attribute name="id" type="xs:string" />
+    <xs:attribute name="school" type="xs:string" />
+    <xs:attribute name="descriptor" type="xs:string" />
+  </xs:complexType>
+
+  <xs:complexType name="spellResistance">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="resist" type="specialBoolean" default="false" />
+        <xs:attribute name="objects" type="xs:boolean" default="false" />
+        <xs:attribute name="harmless" type="xs:boolean" default="false" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="spellRange">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="unit" type="spellRangeUnit" default="specific" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="spellRangeUnit">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="specific" />
+      <xs:enumeration value="personal" />
+      <xs:enumeration value="touch" />
+      <xs:enumeration value="close" />
+      <xs:enumeration value="medium" />
+      <xs:enumeration value="long" />
+      <xs:enumeration value="unlimited" />
+      <xs:enumeration value="squares" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="spellCastingTime">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="unit" type="timeUnit" default="special" />
+        <xs:attribute name="value" type="xs:int" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="spellTarget">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="spellSavingThrow">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="target" type="spellSavingThrowTarget" />
+        <xs:attribute name="effect" type="spellSavingThrowEffect" />
+        <xs:attribute name="harmfull" type="xs:boolean" default="false" />
+        <xs:attribute name="objects" type="xs:boolean" default="false" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="spellSavingThrowTarget">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="savingThrow" />
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="special" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+
+  <xs:simpleType name="spellSavingThrowEffect">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none" />
+      <xs:enumeration value="negates" />
+      <xs:enumeration value="partial" />
+      <xs:enumeration value="half" />
+      <xs:enumeration value="disbelief" />
+      <xs:enumeration value="special" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="pathfinderDb.feats"
+           targetNamespace="urn:pathfinderDb"
+           elementFormDefault="qualified"
+           xmlns="urn:pathfinderDb"
+           xmlns:mstns="urn:pathfinderDb"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
+  <xs:include schemaLocation="pathfinderDb.core.xsd" />
+
+  <xs:complexType name="feat">
+    <xs:all>
+      <xs:element name="name" type="xs:string" minOccurs="1" />
+      <xs:element name="types">
+        <xs:complexType>
+          <xs:sequence maxOccurs="unbounded">
+            <xs:element name="type" type="featType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="prerequisites" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:choice maxOccurs="unbounded">
+              <xs:element name="prerequisite" type="featPrerequisite" />
+              <xs:element name="choice" type="featPrerequisiteChoice" />
+            </xs:choice>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="description" type="xs:string" />
+      <xs:element name="benefit" type="xs:string" minOccurs="0" />
+      <xs:element name="source" type="source" minOccurs="0" />
+      <xs:element name="localization" type="localization" minOccurs="0" />
+    </xs:all>
+    <xs:attribute name="id" type="xs:string" />
+  </xs:complexType>
+
+  <xs:simpleType name="featType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="general" />
+      <xs:enumeration value="combat" />
+      <xs:enumeration value="critical" />
+      <xs:enumeration value="itemCreation" />
+      <xs:enumeration value="metamagic" />
+      <xs:enumeration value="monster" />
+      <xs:enumeration value="team" />
+      <xs:enumeration value="grit" />
+      <xs:enumeration value="performance" />
+      <xs:enumeration value="style" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="featPrerequisiteType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="other" />
+      <xs:enumeration value="attribute" />
+      <xs:enumeration value="feat" />
+      <xs:enumeration value="bba" />
+      <xs:enumeration value="classLevel" />
+      <xs:enumeration value="spellcasterLevel" />
+      <xs:enumeration value="skillRank" />
+      <xs:enumeration value="race" />
+      <xs:enumeration value="spellCast" />
+      <xs:enumeration value="monsterRace" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="featPrerequisiteBase" abstract="true" />
+
+  <xs:complexType name="featPrerequisite">
+    <xs:complexContent mixed="true">
+      <xs:extension base="featPrerequisiteBase">
+        <xs:attribute name="type" type="featPrerequisiteType" />
+        <xs:attribute name="otherType" type="xs:string" />
+        <xs:attribute name="value" type="xs:string" />
+        <xs:attribute name="subValue" type="xs:string" />
+        <xs:attribute name="number" type="xs:int" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="featPrerequisiteChoice">
+    <xs:complexContent>
+      <xs:extension base="featPrerequisiteBase">
+        <xs:sequence maxOccurs="unbounded">
+          <xs:element name="prerequisite" type="featPrerequisite" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>

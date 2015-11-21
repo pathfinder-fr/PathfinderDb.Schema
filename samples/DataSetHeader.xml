@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dataSet xmlns="urn:pathfinderDb" xml:lang="en">
+  <header>
+    <title>Sample Dataset</title>
+    <author>My self</author>
+    <generator>Handcrafted</generator>
+    <description>A sample dataset with a header, build manually.</description>
+  </header>
+  <localization>
+    <!-- French localization sample -->
+    <language xml:lang="fr">
+      <entry href="header/title">Données exemple</entry>
+      <entry href="header/generator">Fait-main</entry>
+      <entry href="hreader/description">Un exemple de données avec une entête et une traduction, construit manuellement.</entry>
+    </language>
+  </localization>
+</dataSet>

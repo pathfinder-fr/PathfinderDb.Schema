@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="pathfinderDb.monsters"
+           targetNamespace="urn:pathfinderDb"
+           elementFormDefault="qualified"
+           xmlns="urn:pathfinderDb"
+           xmlns:mstns="urn:pathfinderDb"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
+
+  <xs:include schemaLocation="pathfinderDb.core.xsd" />
+
+  <xs:simpleType name="gearCategory">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="adventuring" />
+      <xs:enumeration value="toolsAndSkillKits" />
+      <xs:enumeration value="petsAndFamiliar"/>
+      <xs:enumeration value="guardAndHuntingAnimals"/>
+      <xs:enumeration value="petsAndFamiliar"/>
+      <xs:enumeration value="farmAndWorkAnimals"/>
+      <xs:enumeration value="mounts"/>
+      <xs:enumeration value="animalRelatedGear"/>
+      <xs:enumeration value="specialSubstancesAndItems"/>
+      <xs:enumeration value="clothing"/>
+      <xs:enumeration value="entertainment"/>
+      <xs:enumeration value="tradeGoods"/>
+      <xs:enumeration value="foodAndDrink"/>
+      <xs:enumeration value="lodgingAndServices"/>
+      <xs:enumeration value="transport"/>
+      <xs:enumeration value="alchemicalRemedies"/>
+      <xs:enumeration value="alchemicalTools"/>
+      <xs:enumeration value="alchemicalWeapons"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="gear">
+    <xs:all minOccurs="1" maxOccurs="1">
+      <xs:element name="name" type="xs:string" />
+      <xs:element name="summary" type="xs:string" minOccurs="0" />
+      <xs:element name="source" type="source" minOccurs="0" />
+      <xs:element name="localization" type="localization" minOccurs="0" />
+      <xs:element name="price" type="moneyAmount" />
+      <xs:element name="weight" type="weightAmount" minOccurs="0" />
+    </xs:all>
+    <xs:attribute name="id" type="xs:string" />
+    <xs:attribute name="category" type="gearCategory" />
+  </xs:complexType>
+</xs:schema>

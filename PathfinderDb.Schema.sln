@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PathfinderDb.Schema", "src\PathfinderDb.Schema\PathfinderDb.Schema.csproj", "{BD23C9F2-EBFC-43EA-99B4-08E958F72658}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{BC520CAC-447D-4533-ADB7-34118CED3781}"
+	ProjectSection(SolutionItems) = preProject
+		samples\DataSetHeader.xml = samples\DataSetHeader.xml
+		samples\Feat.xml = samples\Feat.xml
+		samples\Monster.xml = samples\Monster.xml
+		samples\Spell.xml = samples\Spell.xml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PathfinderDb.Schema.Tests", "tests\PathfinderDb.Schema.Tests\PathfinderDb.Schema.Tests.csproj", "{B004E87A-31EB-498E-A53F-F14EDD154F4F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BD23C9F2-EBFC-43EA-99B4-08E958F72658}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD23C9F2-EBFC-43EA-99B4-08E958F72658}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD23C9F2-EBFC-43EA-99B4-08E958F72658}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD23C9F2-EBFC-43EA-99B4-08E958F72658}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B004E87A-31EB-498E-A53F-F14EDD154F4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B004E87A-31EB-498E-A53F-F14EDD154F4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B004E87A-31EB-498E-A53F-F14EDD154F4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B004E87A-31EB-498E-A53F-F14EDD154F4F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

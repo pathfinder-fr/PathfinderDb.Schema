@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BD23C9F2-EBFC-43EA-99B4-08E958F72658}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PathfinderDb.Schema</RootNamespace>
+    <AssemblyName>PathfinderDb.Schema</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile136</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\PathfinderDb.Schema.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+    <None Include="pathfinderDb.feats.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="pathfinderDb.core.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="pathfinderDb.gears.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="pathfinderDb.monsters.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="pathfinderDb.spells.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="pathfinderDb.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Gear.cs" />
+    <Compile Include="Alignments.cs" />
+    <Compile Include="CharacterAttribute.cs" />
+    <Compile Include="CharacterAttributes.cs" />
+    <Compile Include="BodySlot.cs" />
+    <Compile Include="Coin.cs" />
+    <Compile Include="CreatureClimate.cs" />
+    <Compile Include="CreatureEnvironment.cs" />
+    <Compile Include="DataSet.cs" />
+    <Compile Include="DataSetHeader.cs" />
+    <Compile Include="DataSetLanguages.cs" />
+    <Compile Include="Distance.cs" />
+    <Compile Include="EquipmentItem.cs" />
+    <Compile Include="EquipmentItemCategory.cs" />
+    <Compile Include="Feat.cs" />
+    <Compile Include="FeatPrerequisite.cs" />
+    <Compile Include="FeatPrerequisiteChoice.cs" />
+    <Compile Include="FeatPrerequisiteOtherTypes.cs" />
+    <Compile Include="FeatPrerequisiteType.cs" />
+    <Compile Include="FeatType.cs" />
+    <Compile Include="GearCategory.cs" />
+    <Compile Include="Ids.cs" />
+    <Compile Include="IFeatPrerequisiteItem.cs" />
+    <Compile Include="Element.cs" />
+    <Compile Include="ElementLocalization.cs" />
+    <Compile Include="ElementLocalizationEntry.cs" />
+    <Compile Include="ElementLocalizationLanguage.cs" />
+    <Compile Include="ElementReference.cs" />
+    <Compile Include="ElementSource.cs" />
+    <Compile Include="MagicAura.cs" />
+    <Compile Include="MagicAuraStrength.cs" />
+    <Compile Include="MagicItem.cs" />
+    <Compile Include="MoneyAmount.cs" />
+    <Compile Include="Monster.cs" />
+    <Compile Include="CreatureType.cs" />
+    <Compile Include="Namespaces.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SavingThrow.cs" />
+    <Compile Include="Source.cs" />
+    <Compile Include="SpecialBoolean.cs" />
+    <Compile Include="Spell.cs" />
+    <Compile Include="SpellCastingTime.cs" />
+    <Compile Include="SpellComponentKinds.cs" />
+    <Compile Include="SpellComponents.cs" />
+    <Compile Include="SpellDescriptors.cs" />
+    <Compile Include="SpellList.cs" />
+    <Compile Include="SpellListLevel.cs" />
+    <Compile Include="SpellRange.cs" />
+    <Compile Include="SpellRangeUnit.cs" />
+    <Compile Include="SpellResistance.cs" />
+    <Compile Include="SpellSavingThrow.cs" />
+    <Compile Include="SpellSavingThrowEffect.cs" />
+    <Compile Include="SpellSavingThrowTarget.cs" />
+    <Compile Include="SpellSchool.cs" />
+    <Compile Include="SpellTarget.cs" />
+    <Compile Include="TimeUnit.cs" />
+    <Compile Include="Url.cs" />
+    <Compile Include="WeightAmount.cs" />
+    <Compile Include="WeightUnit.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

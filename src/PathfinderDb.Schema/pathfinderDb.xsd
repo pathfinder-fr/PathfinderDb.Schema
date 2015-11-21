@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="pathfinderDb"
+           targetNamespace="urn:pathfinderDb"
+           elementFormDefault="qualified"
+           xmlns="urn:pathfinderDb"
+           xmlns:mstns="urn:pathfinderDb"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
+
+  <xs:include schemaLocation="pathfinderDb.core.xsd" />
+  <xs:include schemaLocation="pathfinderDb.spells.xsd" />
+  <xs:include schemaLocation="pathfinderDb.feats.xsd" />
+  <xs:include schemaLocation="pathfinderDb.monsters.xsd" />
+  <xs:include schemaLocation="pathfinderDb.gears.xsd" />
+
+  <xs:element name="dataSet" type="dataSet" />
+
+  <xs:complexType name="dataSet">
+    <xs:annotation>
+      <xs:documentation>
+        A dataset is the root element of a document.
+        It includes an header, content, then localization informations.
+        The header contains meta informations about this document: title, author, etc.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="header" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="title" type="xs:string" minOccurs="0" />
+            <xs:element name="description" type="xs:string" minOccurs="0" />
+            <xs:element name="author" type="xs:string" minOccurs="0" />
+            <xs:element name="generator" type="xs:string" minOccurs="0" />
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+
+        <xs:element name="sources">
+          <xs:complexType>
+            <xs:sequence minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="source">
+                <xs:complexType>
+                  <xs:attribute name="id" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="feats">
+          <xs:complexType>
+            <xs:sequence minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="feat" type="feat" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="spells">
+          <xs:complexType>
+            <xs:sequence minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="spell" type="spell" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="spellLists">
+          <xs:complexType>
+            <xs:sequence minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="spellList" type="spellList" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="monsters">
+          <xs:complexType>
+            <xs:sequence minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="monster" type="monster" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="gears">
+          <xs:complexType>
+            <xs:sequence minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="gear" type="gear" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="localization" type="localization" minOccurs="0" maxOccurs="unbounded" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

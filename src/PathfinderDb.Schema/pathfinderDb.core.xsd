@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="pathfinderDb.core"
+           targetNamespace="urn:pathfinderDb"
+           elementFormDefault="qualified"
+           xmlns="urn:pathfinderDb"
+           xmlns:mstns="urn:pathfinderDb"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
+
+  <xs:complexType name="source">
+    <xs:annotation>
+      <xs:documentation>
+        A source contains informations about the origin of an element (item, feat, monster, etc.).
+        It contains the unique id of the source for the element.
+        This id must be present in a "source" element of the dataSet.
+        It can describe references, such as websites or books.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="references" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="reference" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:string">
+                    <xs:attribute name="href" type="xs:anyURI" />
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+    <xs:attribute name="id" type="xs:string" />
+  </xs:complexType>
+
+  <xs:complexType name="localization">
+    <xs:sequence>
+      <xs:element name="language" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="entry" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:string">
+                    <xs:attribute name="href" type="xs:anyURI" />
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+          <xs:attribute ref="xml:lang" use="required" />
+          <xs:attribute name="sourceId" type="xs:string" />
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="specialBoolean">
+    <xs:union memberTypes="xs:boolean special" />
+  </xs:simpleType>
+
+  <xs:simpleType name="special">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="special" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="timeUnit">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="special" />
+      <xs:enumeration value="simpleAction" />
+      <xs:enumeration value="immediateAction" />
+      <xs:enumeration value="swiftAction" />
+      <xs:enumeration value="fullRoundAction" />
+      <xs:enumeration value="round" />
+      <xs:enumeration value="minute" />
+      <xs:enumeration value="hour" />
+      <xs:enumeration value="day" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="savingThrow">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none" />
+      <xs:enumeration value="reflex" />
+      <xs:enumeration value="fortitude" />
+      <xs:enumeration value="will" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="coin">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="cp"/>
+      <xs:enumeration value="sp"/>
+      <xs:enumeration value="gp"/>
+      <xs:enumeration value="pp"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="moneyAmount">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="unit" type="coin"/>
+        <xs:attribute name="value" type="xs:decimal" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="weightUnit">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="lb"/>
+      <xs:enumeration value="kg"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="weightAmount">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="unit" type="weightUnit"/>
+        <xs:attribute name="value" type="xs:decimal" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:schema>

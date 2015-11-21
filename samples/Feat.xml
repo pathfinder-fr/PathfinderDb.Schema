@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dataSet xml:lang="fr" xmlns="urn:pathfinderDb">
+  <feats>
+    <feat id="attaque-eclair" name="Attaque éclair">
+      <source id="pfrpg" />
+      <types>
+        <type>general</type>
+      </types>
+      <prerequisites>
+        <prerequisite type="feat" value="Bla">Bla !</prerequisite>
+      </prerequisites>
+      <description>Bla</description>
+      <benefit></benefit>
+    </feat>
+  </feats>
+</dataSet>
