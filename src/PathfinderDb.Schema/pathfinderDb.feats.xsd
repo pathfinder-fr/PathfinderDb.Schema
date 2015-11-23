@@ -11,7 +11,6 @@
 
   <xs:complexType name="feat">
     <xs:all>
-      <xs:element name="name" type="xs:string" minOccurs="1" />
       <xs:element name="types">
         <xs:complexType>
           <xs:sequence maxOccurs="unbounded">
@@ -35,6 +34,7 @@
       <xs:element name="localization" type="localization" minOccurs="0" />
     </xs:all>
     <xs:attribute name="id" type="xs:string" />
+    <xs:attribute name="name" type="xs:string" />
   </xs:complexType>
 
   <xs:simpleType name="featType">
