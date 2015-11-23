@@ -60,7 +60,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\PathfinderDb.Schema\PathfinderDb.Schema.csproj">
       <Project>{bd23c9f2-ebfc-43ea-99b4-08e958f72658}</Project>
-      <Name>Schema</Name>
+      <Name>PathfinderDb.Schema</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

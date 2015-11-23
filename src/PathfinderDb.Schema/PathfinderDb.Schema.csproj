@@ -41,27 +41,6 @@
     <DocumentationFile>bin\Release\PathfinderDb.Schema.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <!-- A reference to the entire .NET Framework is automatically included -->
-    <None Include="pathfinderDb.feats.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="pathfinderDb.core.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="pathfinderDb.gears.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="pathfinderDb.monsters.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="pathfinderDb.spells.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="pathfinderDb.xsd">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Gear.cs" />
     <Compile Include="Alignments.cs" />
     <Compile Include="CharacterAttribute.cs" />

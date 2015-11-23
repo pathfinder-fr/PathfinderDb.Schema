@@ -11,7 +11,7 @@
     <language xml:lang="fr">
       <entry href="header/title">Données exemple</entry>
       <entry href="header/generator">Fait-main</entry>
-      <entry href="hreader/description">Un exemple de données avec une entête et une traduction, construit manuellement.</entry>
+      <entry href="header/description">Un exemple de données avec une entête et une traduction, construit manuellement.</entry>
     </language>
   </localization>
 </dataSet>

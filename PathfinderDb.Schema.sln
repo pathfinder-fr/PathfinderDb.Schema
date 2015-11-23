@@ -1,17 +1,29 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PathfinderDb.Schema", "src\PathfinderDb.Schema\PathfinderDb.Schema.csproj", "{BD23C9F2-EBFC-43EA-99B4-08E958F72658}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{BC520CAC-447D-4533-ADB7-34118CED3781}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PathfinderDb.Schema.Tests", "tests\PathfinderDb.Schema.Tests\PathfinderDb.Schema.Tests.csproj", "{B004E87A-31EB-498E-A53F-F14EDD154F4F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "xml", "xml", "{9AA16C68-D921-4479-A4D8-9D0F99C214DC}"
 	ProjectSection(SolutionItems) = preProject
-		samples\DataSetHeader.xml = samples\DataSetHeader.xml
-		samples\Feat.xml = samples\Feat.xml
-		samples\Monster.xml = samples\Monster.xml
-		samples\Spell.xml = samples\Spell.xml
+		xml\pathfinderDb.core.xsd = xml\pathfinderDb.core.xsd
+		xml\pathfinderDb.feats.xsd = xml\pathfinderDb.feats.xsd
+		xml\pathfinderDb.gears.xsd = xml\pathfinderDb.gears.xsd
+		xml\pathfinderDb.monsters.xsd = xml\pathfinderDb.monsters.xsd
+		xml\pathfinderDb.spells.xsd = xml\pathfinderDb.spells.xsd
+		xml\pathfinderDb.xsd = xml\pathfinderDb.xsd
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PathfinderDb.Schema.Tests", "tests\PathfinderDb.Schema.Tests\PathfinderDb.Schema.Tests.csproj", "{B004E87A-31EB-498E-A53F-F14EDD154F4F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{C08B2E87-FF06-41D6-8118-B9AD311B9C78}"
+	ProjectSection(SolutionItems) = preProject
+		xml\samples\DataSetHeader.xml = xml\samples\DataSetHeader.xml
+		xml\samples\Feat.xml = xml\samples\Feat.xml
+		xml\samples\Monster.xml = xml\samples\Monster.xml
+		xml\samples\Spell.xml = xml\samples\Spell.xml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,5 +42,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C08B2E87-FF06-41D6-8118-B9AD311B9C78} = {9AA16C68-D921-4479-A4D8-9D0F99C214DC}
 	EndGlobalSection
 EndGlobal
