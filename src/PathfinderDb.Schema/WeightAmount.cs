@@ -11,19 +11,19 @@ using System.Xml.Serialization;
 namespace PathfinderDb.Schema
 {
     /// <summary>
-    ///     Describes a weight, using a value and a unit.
+    /// Describes a weight, using a value and a unit.
     /// </summary>
     [XmlType("weight")]
     public class WeightAmount
     {
         /// <summary>
-        ///     Gets or sets the unit used to describe the weight.
+        /// Gets or sets the unit used to describe the weight.
         /// </summary>
         [XmlAttribute("unit")]
         public WeightUnit Unit { get; set; }
 
         /// <summary>
-        ///     Gets or sets the value sued to describe the weight.
+        /// Gets or sets the value sued to describe the weight.
         /// </summary>
         [XmlAttribute("value")]
         [DefaultValue(typeof (decimal), "0")]

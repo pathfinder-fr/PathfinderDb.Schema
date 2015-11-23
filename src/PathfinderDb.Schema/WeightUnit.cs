@@ -9,19 +9,19 @@ using System.Xml.Serialization;
 namespace PathfinderDb.Schema
 {
     /// <summary>
-    ///     Specifies the unit used to describe a weight.
+    /// Specifies the unit used to describe a weight.
     /// </summary>
     [XmlType("weightUnit")]
     public enum WeightUnit
     {
         /// <summary>
-        ///     Pounds.
+        /// Pounds.
         /// </summary>
         [XmlEnum("lbs")]
         Pounds,
 
         /// <summary>
-        ///     Kilograms.
+        /// Kilograms.
         /// </summary>
         [XmlEnum("kg")]
         Kilogram

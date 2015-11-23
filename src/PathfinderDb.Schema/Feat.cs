@@ -14,26 +14,26 @@ namespace PathfinderDb.Schema
     public class Feat : Element
     {
         /// <summary>
-        ///     Gets or sets the unique id of this feat.
+        /// Gets or sets the unique id of this feat.
         /// </summary>
         [XmlAttribute("id")]
         public string Id { get; set; }
 
         /// <summary>
-        ///     Gets or sets the name of this feat.
+        /// Gets or sets the name of this feat.
         /// </summary>
         [XmlAttribute("name")]
         public string Name { get; set; }
 
         /// <summary>
-        ///     Gets or sets the types of the feat.
+        /// Gets or sets the types of the feat.
         /// </summary>
         [XmlArray("types")]
         [XmlArrayItem("type")]
         public FeatType[] Types { get; set; }
 
         /// <summary>
-        ///     Gets or sets all prerequisites for this feat.
+        /// Gets or sets all prerequisites for this feat.
         /// </summary>
         [XmlArray("prerequisites")]
         [XmlArrayItem("prerequisite", Type = typeof (FeatPrerequisite))]

@@ -13,7 +13,7 @@ namespace PathfinderDb.Schema
     public class MoneyAmount
     {
         /// <summary>
-        ///     Initializes a new instance of <see cref="MoneyAmount" />.
+        /// Initializes a new instance of <see cref="MoneyAmount" />.
         /// </summary>
         public MoneyAmount()
         {

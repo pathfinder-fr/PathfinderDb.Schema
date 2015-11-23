@@ -29,7 +29,7 @@ namespace PathfinderDb.Schema
         public DataSetHeader Header { get; set; }
 
         /// <summary>
-        ///     Gets or sets all sources used in this dataset.
+        /// Gets or sets all sources used in this dataset.
         /// </summary>
         [XmlArray("sources")]
         public List<Source> Sources { get; set; }

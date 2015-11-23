@@ -21,7 +21,7 @@ namespace PathfinderDb.Schema
         }
 
         /// <summary>
-        ///     Gets or set the id of the source this item comes from.
+        /// Gets or set the id of the source this item comes from.
         /// </summary>
         [XmlAttribute("id")]
         public string Id { get; set; }

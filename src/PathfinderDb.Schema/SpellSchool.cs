@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 namespace PathfinderDb.Schema
 {
     /// <summary>
-    ///     Specifies all spell schools known in pathfinder rpg.
+    /// Specifies all spell schools known in pathfinder rpg.
     /// </summary>
     [XmlType("spellSchool")]
     public enum SpellSchool

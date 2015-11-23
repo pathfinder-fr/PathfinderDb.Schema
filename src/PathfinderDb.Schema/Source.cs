@@ -12,35 +12,35 @@ using System.Xml.Serialization;
 namespace PathfinderDb.Schema
 {
     /// <summary>
-    ///     Represents a product source, such as an official book (player's guide, bestiary) or a web product.
+    /// Represents a product source, such as an official book (player's guide, bestiary) or a web product.
     /// </summary>
     [DebuggerDisplay("{Name}")]
     [XmlType("source")]
     public class Source
     {
         /// <summary>
-        ///     Gets or sets the unique id for this product source.
-        ///     It can be one of the values of <see cref="Ids" /> or any custom string.
-        ///     It should be culture insensitive (all pathfinder rpg rulebook are referenced using the "pfrpg" id, ignoring the
-        ///     language used).
+        /// Gets or sets the unique id for this product source.
+        /// It can be one of the values of <see cref="Ids" /> or any custom string.
+        /// It should be culture insensitive (all pathfinder rpg rulebook are referenced using the "pfrpg" id, ignoring the
+        /// language used).
         /// </summary>
         [XmlAttribute("id")]
         public string Id { get; set; }
 
         /// <summary>
-        ///     Gets or sets the display name for this product source.
+        /// Gets or sets the display name for this product source.
         /// </summary>
         [XmlAttribute("name")]
         public string Name { get; set; }
 
         /// <summary>
-        ///     Gets or sets the unique url for this product.
+        /// Gets or sets the unique url for this product.
         /// </summary>
         [XmlIgnore]
         public Uri Url { get; set; }
 
         /// <summary>
-        ///     Gets or sets the unique url for this product, in a text format.
+        /// Gets or sets the unique url for this product, in a text format.
         /// </summary>
         [XmlAttribute("url")]
         [EditorBrowsable(EditorBrowsableState.Never)]
@@ -51,52 +51,52 @@ namespace PathfinderDb.Schema
         }
 
         /// <summary>
-        ///     Contains most officials ids.
+        /// Contains most officials ids.
         /// </summary>
         public static class Ids
         {
             /// <summary>
-            ///     Source id for pathfinder rpg rules.
+            /// Source id for pathfinder rpg rules.
             /// </summary>
             public const string PathfinderRpg = "pfrpg";
 
             /// <summary>
-            ///     Source id for bestiary.
+            /// Source id for bestiary.
             /// </summary>
             public const string Bestiary = "bestiary";
 
             /// <summary>
-            ///     Source id for bestiary 2.
+            /// Source id for bestiary 2.
             /// </summary>
             public const string Bestiary2 = "bestiary2";
 
             /// <summary>
-            ///     Source id for bestiary 3.
+            /// Source id for bestiary 3.
             /// </summary>
             public const string Bestiary3 = "bestiary3";
 
             /// <summary>
-            ///     Source id for bestiary 4.
+            /// Source id for bestiary 4.
             /// </summary>
             public const string Bestiary4 = "bestiary4";
 
             /// <summary>
-            ///     Source id for pathfinder advanced player guide.
+            /// Source id for pathfinder advanced player guide.
             /// </summary>
             public const string AdvancedPlayerGuide = "apg";
 
             /// <summary>
-            ///     Source id for pathfinder ultimate combat.
+            /// Source id for pathfinder ultimate combat.
             /// </summary>
             public const string UltimateCombat = "uc";
 
             /// <summary>
-            ///     Source id for pathfinder ultimate magic.
+            /// Source id for pathfinder ultimate magic.
             /// </summary>
             public const string UltimateMagic = "um";
 
             /// <summary>
-            ///     Source id for the paizo blog.
+            /// Source id for the paizo blog.
             /// </summary>
             public const string PaizoBlog = "paizoBlog";
 

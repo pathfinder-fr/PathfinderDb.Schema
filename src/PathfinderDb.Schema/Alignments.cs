@@ -12,82 +12,82 @@ namespace PathfinderDb.Schema
     public enum Alignments
     {
         /// <summary>
-        ///     None.
+        /// None.
         /// </summary>
         None = 0,
 
         /// <summary>
-        ///     Lawful Good.
+        /// Lawful Good.
         /// </summary>
         LawfulGood = 1,
 
         /// <summary>
-        ///     Lawful Neutral.
+        /// Lawful Neutral.
         /// </summary>
         LawfulNeutral = 1 << 1,
 
         /// <summary>
-        ///     Lawful Evil.
+        /// Lawful Evil.
         /// </summary>
         LawfulEvil = 1 << 2,
 
         /// <summary>
-        ///     Neutral Good.
+        /// Neutral Good.
         /// </summary>
         NeutralGood = 1 << 3,
 
         /// <summary>
-        ///     Neutral Strict.
+        /// Neutral Strict.
         /// </summary>
         NeutralStrict = 1 << 4,
 
         /// <summary>
-        ///     Neutral Evil.
+        /// Neutral Evil.
         /// </summary>
         NeutralEvil = 1 << 5,
 
         /// <summary>
-        ///     Chaotic Good.
+        /// Chaotic Good.
         /// </summary>
         ChaoticGood = 1 << 6,
 
         /// <summary>
-        ///     Chaotic Neutral.
+        /// Chaotic Neutral.
         /// </summary>
         ChaoticNeutral = 1 << 7,
 
         /// <summary>
-        ///     Chaotic Evil.
+        /// Chaotic Evil.
         /// </summary>
         ChaoticEvil = 1 << 9,
 
         /// <summary>
-        ///     Lawful.
+        /// Lawful.
         /// </summary>
         Lawful = LawfulGood | LawfulNeutral | LawfulEvil,
 
         /// <summary>
-        ///     Chaotic.
+        /// Chaotic.
         /// </summary>
         Chaotic = ChaoticGood | ChaoticNeutral | ChaoticEvil,
 
         /// <summary>
-        ///     Neutral.
+        /// Neutral.
         /// </summary>
         Neutral = NeutralGood | NeutralStrict | NeutralEvil | LawfulNeutral | ChaoticNeutral,
 
         /// <summary>
-        ///     Good.
+        /// Good.
         /// </summary>
         Good = LawfulGood | NeutralGood | ChaoticGood,
 
         /// <summary>
-        ///     Evil.
+        /// Evil.
         /// </summary>
         Evil = LawfulEvil | NeutralEvil | ChaoticEvil,
 
         /// <summary>
-        ///     All
+        /// All
         /// </summary>
         All = Lawful | Neutral | Chaotic
     }

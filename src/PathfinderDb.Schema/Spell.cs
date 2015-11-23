@@ -15,14 +15,14 @@ namespace PathfinderDb.Schema
     public class Spell : Element
     {
         /// <summary>
-        ///     Gets or sets the unique id of this spell.
-        ///     It's often generated using its title, replacing spaces by '-' and removing any extra character.
+        /// Gets or sets the unique id of this spell.
+        /// It's often generated using its title, replacing spaces by '-' and removing any extra character.
         /// </summary>
         [XmlAttribute("id")]
         public string Id { get; set; }
 
         /// <summary>
-        ///     Gets or sets the title (name) of this spell.
+        /// Gets or sets the title (name) of this spell.
         /// </summary>
         [XmlElement("name")]
         public string Name { get; set; }

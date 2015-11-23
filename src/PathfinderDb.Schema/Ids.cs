@@ -9,7 +9,7 @@ namespace PathfinderDb.Schema
     public static class Ids
     {
         /// <summary>
-        ///     Normalization rules : lower invariant, remove all ',' and replace spaces with '-'.
+        /// Normalization rules : lower invariant, remove all ',' and replace spaces with '-'.
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
