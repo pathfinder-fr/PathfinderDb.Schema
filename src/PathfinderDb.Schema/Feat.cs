@@ -16,7 +16,7 @@
         /// <summary>
         /// Gets or sets the name of this feat.
         /// </summary>
-        [XmlElement("name")]
+        [XmlAttribute("name")]
         public string Name { get; set; }
 
         /// <summary>

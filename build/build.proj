@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-	<RootFolder>$(MSBuildProjectDirectory)\..</RootFolder>
+    <RootFolder>$(MSBuildProjectDirectory)\..</RootFolder>
+    <ToolFolder>$(RootFolder)\build</ToolFolder>
     <SrcFolder>$(RootFolder)\src</SrcFolder>
     <BinFolder>$(RootFolder)\artifacts</BinFolder>
     <OutDir Condition="$(OutDir) == ''">$(BinFolder)\</OutDir>
@@ -12,5 +13,9 @@
 
   <Target Name="Compile">
     <MSBuild Projects="$(RootFolder)\PathfinderDb.Schema.sln" Targets="Build" Properties="Configuration=$(Configuration);OutDir=$(OutDir)" />
+  </Target>
+  
+  <Target Name="Pack" DependsOnTargets="Compile">
+    <Exec Command="$(ToolFolder)\nuget.exe pack PathfinderDb.Schema.nuspec -version 1.0.1 -outputdirectory $(OutDir)" />
   </Target>
 </Project>
