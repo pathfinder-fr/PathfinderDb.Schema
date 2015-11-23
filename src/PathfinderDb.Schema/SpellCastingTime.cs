@@ -1,18 +1,24 @@
-﻿namespace PathfinderDb.Schema
-{
-    using System.ComponentModel;
-    using System.Xml.Serialization;
+﻿// -----------------------------------------------------------------------
+// <copyright file="SpellCastingTime.cs" organization="Pathfinder-Fr">
+// Copyright (c) Pathfinder-fr. Tous droits reserves.
+// </copyright>
+// -----------------------------------------------------------------------
 
+using System.ComponentModel;
+using System.Xml.Serialization;
+
+namespace PathfinderDb.Schema
+{
     [XmlType("spellCastingTime")]
     public class SpellCastingTime
     {
         public SpellCastingTime()
         {
-            this.Unit = TimeUnit.SimpleAction;
+            Unit = TimeUnit.SimpleAction;
         }
 
         [XmlAttribute("unit")]
-        [DefaultValue(typeof(TimeUnit), "simpleAction")]
+        [DefaultValue(typeof (TimeUnit), "simpleAction")]
         public TimeUnit Unit { get; set; }
 
         [XmlAttribute("value")]
@@ -24,23 +30,23 @@
 
         public override string ToString()
         {
-            switch (this.Unit)
+            switch (Unit)
             {
                 case TimeUnit.SimpleAction:
                 case TimeUnit.ImmediateAction:
                 case TimeUnit.SwiftAction:
                 case TimeUnit.FullRoundAction:
-                    return this.Unit.ToString();
+                    return Unit.ToString();
 
                 case TimeUnit.Round:
                 case TimeUnit.Minute:
                 case TimeUnit.Hour:
                 case TimeUnit.Day:
-                    return string.Format("{0} {1}", this.Value, this.Unit);
+                    return string.Format("{0} {1}", Value, Unit);
 
                 default:
                 case TimeUnit.Special:
-                    return this.Text;
+                    return Text;
             }
         }
     }

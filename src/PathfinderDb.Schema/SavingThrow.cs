@@ -1,7 +1,13 @@
-﻿namespace PathfinderDb.Schema
-{
-    using System.Xml.Serialization;
+﻿// -----------------------------------------------------------------------
+// <copyright file="SavingThrow.cs" organization="Pathfinder-Fr">
+// Copyright (c) Pathfinder-fr. Tous droits reserves.
+// </copyright>
+// -----------------------------------------------------------------------
 
+using System.Xml.Serialization;
+
+namespace PathfinderDb.Schema
+{
     [XmlType("savingThrow")]
     public enum SavingThrow
     {
@@ -15,6 +21,6 @@
         Fortitude = 2,
 
         [XmlEnum("will")]
-        Will = 3,
+        Will = 3
     }
 }

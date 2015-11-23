@@ -1,8 +1,14 @@
-﻿namespace PathfinderDb.Schema
-{
-    using System.ComponentModel;
-    using System.Xml.Serialization;
+﻿// -----------------------------------------------------------------------
+// <copyright file="SpellSavingThrow.cs" organization="Pathfinder-Fr">
+// Copyright (c) Pathfinder-fr. Tous droits reserves.
+// </copyright>
+// -----------------------------------------------------------------------
 
+using System.ComponentModel;
+using System.Xml.Serialization;
+
+namespace PathfinderDb.Schema
+{
     [XmlType("spellSavingThrow")]
     public class SpellSavingThrow
     {

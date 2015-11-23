@@ -1,8 +1,15 @@
-﻿namespace PathfinderDb.Schema
-{
-    using System.Collections.Generic;
-    using System.Xml.Serialization;
+﻿// -----------------------------------------------------------------------
+// <copyright file="ElementSource.cs" organization="Pathfinder-Fr">
+// Copyright (c) Pathfinder-fr. Tous droits reserves.
+// </copyright>
+// -----------------------------------------------------------------------
 
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Xml.Serialization;
+
+namespace PathfinderDb.Schema
+{
     [XmlType("itemSource")]
     public class ElementSource
     {
@@ -10,11 +17,11 @@
 
         public ElementSource()
         {
-            this.References = new List<ElementReference>();
+            References = new List<ElementReference>();
         }
 
         /// <summary>
-        /// Gets or set the id of the source this item comes from.
+        ///     Gets or set the id of the source this item comes from.
         /// </summary>
         [XmlAttribute("id")]
         public string Id { get; set; }
@@ -23,10 +30,10 @@
         [XmlArrayItem("reference")]
         public List<ElementReference> References { get; set; }
 
-        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public bool ShouldSerializeReferences()
         {
-            return this.References != null && this.References.Count != 0;
+            return References != null && References.Count != 0;
         }
     }
 }

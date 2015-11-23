@@ -1,27 +1,35 @@
-﻿namespace PathfinderDb.Schema
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Xml.Serialization;
+﻿// -----------------------------------------------------------------------
+// <copyright file="DataSet.cs" organization="Pathfinder-Fr">
+// Copyright (c) Pathfinder-fr. Tous droits reserves.
+// </copyright>
+// -----------------------------------------------------------------------
 
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Xml;
+using System.Xml.Serialization;
+
+namespace PathfinderDb.Schema
+{
     [XmlType("dataSet", Namespace = Namespaces.PathfinderDb)]
     [XmlRoot("dataSet", Namespace = Namespaces.PathfinderDb)]
     public class DataSet
     {
         public DataSet()
         {
-            this.Sources = new List<Source>();
-            this.Spells = new List<Spell>();
-            this.SpellLists = new List<SpellList>();
-            this.Feats = new List<Feat>();
-            this.Monsters = new List<Monster>();
+            Sources = new List<Source>();
+            Spells = new List<Spell>();
+            SpellLists = new List<SpellList>();
+            Feats = new List<Feat>();
+            Monsters = new List<Monster>();
         }
 
         [XmlElement("header")]
         public DataSetHeader Header { get; set; }
 
         /// <summary>
-        /// Gets or sets all sources used in this dataset.
+        ///     Gets or sets all sources used in this dataset.
         /// </summary>
         [XmlArray("sources")]
         public List<Source> Sources { get; set; }
@@ -41,31 +49,31 @@
         [XmlAttribute("lang", Namespace = Namespaces.Xml)]
         public string Lang { get; set; }
 
-        public static DataSet Load(System.IO.Stream stream)
+        public static DataSet Load(Stream stream)
         {
-            using (var xmlReader = System.Xml.XmlReader.Create(stream))
+            using (var xmlReader = XmlReader.Create(stream))
             {
                 return Load(xmlReader);
             }
         }
 
-        public static DataSet Load(System.Xml.XmlReader xmlReader)
+        public static DataSet Load(XmlReader xmlReader)
         {
-            var serializer = new XmlSerializer(typeof(DataSet));
-            return (DataSet)serializer.Deserialize(xmlReader);
+            var serializer = new XmlSerializer(typeof (DataSet));
+            return (DataSet) serializer.Deserialize(xmlReader);
         }
 
-        public static DataSet Load(System.IO.TextReader textReader)
+        public static DataSet Load(TextReader textReader)
         {
-            var serializer = new XmlSerializer(typeof(DataSet));
-            return (DataSet)serializer.Deserialize(textReader);
+            var serializer = new XmlSerializer(typeof (DataSet));
+            return (DataSet) serializer.Deserialize(textReader);
         }
 
         public void Add(DataSet other)
         {
-            this.Copy(() => other.Sources, () => this.Sources, t => this.Sources = t);
-            this.Copy(() => other.Feats, () => this.Feats, t => this.Feats = t);
-            this.Copy(() => other.Spells, () => this.Spells, t => this.Spells = t);
+            Copy(() => other.Sources, () => Sources, t => Sources = t);
+            Copy(() => other.Feats, () => Feats, t => Feats = t);
+            Copy(() => other.Spells, () => Spells, t => Spells = t);
         }
 
         private void Copy<T>(Func<List<T>> getSource, Func<List<T>> getTarget, Action<List<T>> setTarget)

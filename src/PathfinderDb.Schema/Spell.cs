@@ -1,22 +1,28 @@
-﻿namespace PathfinderDb.Schema
-{
-    using System.ComponentModel;
-    using System.Diagnostics;
-    using System.Xml.Serialization;
+﻿// -----------------------------------------------------------------------
+// <copyright file="Spell.cs" organization="Pathfinder-Fr">
+// Copyright (c) Pathfinder-fr. Tous droits reserves.
+// </copyright>
+// -----------------------------------------------------------------------
 
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Xml.Serialization;
+
+namespace PathfinderDb.Schema
+{
     [XmlType("spell", Namespace = Namespaces.PathfinderDb)]
     [DebuggerDisplay("{Name}")]
     public class Spell : Element
     {
         /// <summary>
-        /// Gets or sets the unique id of this spell.
-        /// It's often generated using its title, replacing spaces by '-' and removing any extra character.
+        ///     Gets or sets the unique id of this spell.
+        ///     It's often generated using its title, replacing spaces by '-' and removing any extra character.
         /// </summary>
         [XmlAttribute("id")]
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or sets the title (name) of this spell.
+        ///     Gets or sets the title (name) of this spell.
         /// </summary>
         [XmlElement("name")]
         public string Name { get; set; }
@@ -25,7 +31,7 @@
         public SpellSchool School { get; set; }
 
         [XmlAttribute("descriptor")]
-        [DefaultValue(typeof(SpellDescriptors), "None")]
+        [DefaultValue(typeof (SpellDescriptors), "None")]
         public SpellDescriptors Descriptor { get; set; }
 
         [XmlArray("levels")]
@@ -56,7 +62,7 @@
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool ShouldSerializeSpellResistance()
         {
-            return this.SpellResistance != null && this.SpellResistance.ShouldSerialize();
+            return SpellResistance != null && SpellResistance.ShouldSerialize();
         }
     }
 }

@@ -1,8 +1,14 @@
-﻿namespace PathfinderDb.Schema
-{
-    using System;
-    using System.Xml.Serialization;
+﻿// -----------------------------------------------------------------------
+// <copyright file="SpellComponentKinds.cs" organization="Pathfinder-Fr">
+// Copyright (c) Pathfinder-fr. Tous droits reserves.
+// </copyright>
+// -----------------------------------------------------------------------
 
+using System;
+using System.Xml.Serialization;
+
+namespace PathfinderDb.Schema
+{
     [Flags]
     public enum SpellComponentKinds
     {

@@ -1,7 +1,13 @@
-﻿namespace PathfinderDb.Schema
-{
-    using System.Xml.Serialization;
+﻿// -----------------------------------------------------------------------
+// <copyright file="SpellList.cs" organization="Pathfinder-Fr">
+// Copyright (c) Pathfinder-fr. Tous droits reserves.
+// </copyright>
+// -----------------------------------------------------------------------
 
+using System.Xml.Serialization;
+
+namespace PathfinderDb.Schema
+{
     [XmlType("spellList")]
     public class SpellList
     {

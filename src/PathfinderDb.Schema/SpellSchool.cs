@@ -1,9 +1,15 @@
-﻿namespace PathfinderDb.Schema
-{
-    using System.Xml.Serialization;
+﻿// -----------------------------------------------------------------------
+// <copyright file="SpellSchool.cs" organization="Pathfinder-Fr">
+// Copyright (c) Pathfinder-fr. Tous droits reserves.
+// </copyright>
+// -----------------------------------------------------------------------
 
+using System.Xml.Serialization;
+
+namespace PathfinderDb.Schema
+{
     /// <summary>
-    /// Specifies all spell schools known in pathfinder rpg.
+    ///     Specifies all spell schools known in pathfinder rpg.
     /// </summary>
     [XmlType("spellSchool")]
     public enum SpellSchool

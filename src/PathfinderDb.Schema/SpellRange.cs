@@ -1,18 +1,24 @@
-﻿namespace PathfinderDb.Schema
-{
-    using System.ComponentModel;
-    using System.Xml.Serialization;
+﻿// -----------------------------------------------------------------------
+// <copyright file="SpellRange.cs" organization="Pathfinder-Fr">
+// Copyright (c) Pathfinder-fr. Tous droits reserves.
+// </copyright>
+// -----------------------------------------------------------------------
 
+using System.ComponentModel;
+using System.Xml.Serialization;
+
+namespace PathfinderDb.Schema
+{
     [XmlType("spellRange")]
     public class SpellRange
     {
         public SpellRange()
         {
-            this.Unit = SpellRangeUnit.Specific;
+            Unit = SpellRangeUnit.Specific;
         }
 
         [XmlAttribute("unit")]
-        [DefaultValue(typeof(SpellRangeUnit), "specific")]
+        [DefaultValue(typeof (SpellRangeUnit), "specific")]
         public SpellRangeUnit Unit { get; set; }
 
         [XmlText]
@@ -20,15 +26,15 @@
 
         public override string ToString()
         {
-            if (this.Unit == SpellRangeUnit.Specific)
+            if (Unit == SpellRangeUnit.Specific)
             {
-                return this.SpecificValue;
+                return SpecificValue;
             }
-            if (this.Unit == SpellRangeUnit.Squares)
+            if (Unit == SpellRangeUnit.Squares)
             {
-                return string.Format("{0} Squares", this.SpecificValue);
+                return string.Format("{0} Squares", SpecificValue);
             }
-            return this.Unit.ToString();
+            return Unit.ToString();
         }
     }
 }

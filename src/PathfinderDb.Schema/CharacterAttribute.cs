@@ -1,7 +1,13 @@
-﻿namespace PathfinderDb.Schema
-{
-    using System.Xml.Serialization;
+﻿// -----------------------------------------------------------------------
+// <copyright file="CharacterAttribute.cs" organization="Pathfinder-Fr">
+// Copyright (c) Pathfinder-fr. Tous droits reserves.
+// </copyright>
+// -----------------------------------------------------------------------
 
+using System.Xml.Serialization;
+
+namespace PathfinderDb.Schema
+{
     [XmlType("attribute")]
     public enum CharacterAttribute
     {
@@ -24,6 +30,6 @@
         Wisdom = 5,
 
         [XmlEnum(CharacterAttributes.Charisma)]
-        Charisma = 6,
+        Charisma = 6
     }
 }

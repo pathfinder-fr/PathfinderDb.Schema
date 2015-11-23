@@ -1,7 +1,13 @@
-﻿namespace PathfinderDb.Schema
-{
-    using System.Xml.Serialization;
+﻿// -----------------------------------------------------------------------
+// <copyright file="Coin.cs" organization="Pathfinder-Fr">
+// Copyright (c) Pathfinder-fr. Tous droits reserves.
+// </copyright>
+// -----------------------------------------------------------------------
 
+using System.Xml.Serialization;
+
+namespace PathfinderDb.Schema
+{
     [XmlType("coin")]
     public enum Coin
     {

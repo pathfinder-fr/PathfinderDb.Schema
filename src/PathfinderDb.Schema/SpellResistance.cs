@@ -1,13 +1,19 @@
-﻿namespace PathfinderDb.Schema
-{
-    using System.ComponentModel;
-    using System.Xml.Serialization;
+﻿// -----------------------------------------------------------------------
+// <copyright file="SpellResistance.cs" organization="Pathfinder-Fr">
+// Copyright (c) Pathfinder-fr. Tous droits reserves.
+// </copyright>
+// -----------------------------------------------------------------------
 
+using System.ComponentModel;
+using System.Xml.Serialization;
+
+namespace PathfinderDb.Schema
+{
     [XmlType("spellResistance")]
     public class SpellResistance
     {
         [XmlAttribute("resist")]
-        [DefaultValue(typeof(SpecialBoolean), "no")]
+        [DefaultValue(typeof (SpecialBoolean), "no")]
         public SpecialBoolean Resist { get; set; }
 
         [XmlAttribute("objects")]
@@ -23,7 +29,7 @@
 
         public bool ShouldSerialize()
         {
-            return this.Resist != SpecialBoolean.No || this.Objects || this.Harmless || !string.IsNullOrWhiteSpace(this.Text);
+            return Resist != SpecialBoolean.No || Objects || Harmless || !string.IsNullOrWhiteSpace(Text);
         }
     }
 }

@@ -1,7 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿// -----------------------------------------------------------------------
+// <copyright file="EquipmentItemCategory.cs" organization="Pathfinder-Fr">
+// Copyright (c) Pathfinder-fr. Tous droits reserves.
+// </copyright>
+// -----------------------------------------------------------------------
 
 namespace PathfinderDb.Schema
 {
@@ -11,8 +12,6 @@ namespace PathfinderDb.Schema
 
         Armor,
 
-        Weapon,
-
-
+        Weapon
     }
 }

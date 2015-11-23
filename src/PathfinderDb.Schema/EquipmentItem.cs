@@ -1,8 +1,14 @@
-﻿namespace PathfinderDb.Schema
-{
-    using System.Diagnostics;
-    using System.Xml.Serialization;
+﻿// -----------------------------------------------------------------------
+// <copyright file="EquipmentItem.cs" organization="Pathfinder-Fr">
+// Copyright (c) Pathfinder-fr. Tous droits reserves.
+// </copyright>
+// -----------------------------------------------------------------------
 
+using System.Diagnostics;
+using System.Xml.Serialization;
+
+namespace PathfinderDb.Schema
+{
     [XmlType("equipmentItem", Namespace = Namespaces.PathfinderDb)]
     [DebuggerDisplay("{Name}")]
     public class EquipmentItem : Element

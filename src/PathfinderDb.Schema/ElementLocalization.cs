@@ -1,10 +1,17 @@
-﻿namespace PathfinderDb.Schema
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Xml.Serialization;
+﻿// -----------------------------------------------------------------------
+// <copyright file="ElementLocalization.cs" organization="Pathfinder-Fr">
+// Copyright (c) Pathfinder-fr. Tous droits reserves.
+// </copyright>
+// -----------------------------------------------------------------------
 
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Xml.Serialization;
+
+namespace PathfinderDb.Schema
+{
     [XmlType("localization")]
     public class ElementLocalization
     {
@@ -13,12 +20,12 @@
 
         public string GetLocalizedEntry(string language, string href, string defaultValue = null)
         {
-            if (this.Languages == null)
+            if (Languages == null)
             {
                 return defaultValue;
             }
 
-            var elementLanguage = this.Languages.FirstOrDefault(l => l.Lang == language);
+            var elementLanguage = Languages.FirstOrDefault(l => l.Lang == language);
 
             if (elementLanguage == null || elementLanguage.Entries == null)
             {
@@ -37,12 +44,12 @@
 
         public void AddLocalizedEntry(string language, string href, string value)
         {
-            var lang = (this.Languages ?? (this.Languages = new List<ElementLocalizationLanguage>())).FirstOrDefault(l => l.Lang.Equals(language, StringComparison.OrdinalIgnoreCase));
+            var lang = (Languages ?? (Languages = new List<ElementLocalizationLanguage>())).FirstOrDefault(l => l.Lang.Equals(language, StringComparison.OrdinalIgnoreCase));
 
             if (lang == null)
             {
-                lang = new ElementLocalizationLanguage { Lang = language };
-                this.Languages.Add(lang);
+                lang = new ElementLocalizationLanguage {Lang = language};
+                Languages.Add(lang);
             }
 
 
@@ -52,17 +59,17 @@
 
             if (entry == null)
             {
-                entry = new ElementLocalizationEntry { Href = href };
+                entry = new ElementLocalizationEntry {Href = href};
                 entries.Add(entry);
             }
 
             entry.Value = value;
         }
 
-        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public bool ShouldSerialize()
         {
-            return this.Languages != null && this.Languages.Count != 0;
+            return Languages != null && Languages.Count != 0;
         }
     }
 }

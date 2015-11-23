@@ -1,7 +1,13 @@
-﻿namespace PathfinderDb.Schema
-{
-    using System.Xml.Serialization;
+﻿// -----------------------------------------------------------------------
+// <copyright file="SpellSavingThrowEffect.cs" organization="Pathfinder-Fr">
+// Copyright (c) Pathfinder-fr. Tous droits reserves.
+// </copyright>
+// -----------------------------------------------------------------------
 
+using System.Xml.Serialization;
+
+namespace PathfinderDb.Schema
+{
     [XmlType("spellSavingThrowEffect")]
     public enum SpellSavingThrowEffect
     {
@@ -21,6 +27,6 @@
         Disbelief,
 
         [XmlEnum("special")]
-        Special,
+        Special
     }
 }

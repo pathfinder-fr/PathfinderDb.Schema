@@ -1,7 +1,13 @@
-﻿namespace PathfinderDb.Schema
-{
-    using System.Xml.Serialization;
+﻿// -----------------------------------------------------------------------
+// <copyright file="SpellSavingThrowTarget.cs" organization="Pathfinder-Fr">
+// Copyright (c) Pathfinder-fr. Tous droits reserves.
+// </copyright>
+// -----------------------------------------------------------------------
 
+using System.Xml.Serialization;
+
+namespace PathfinderDb.Schema
+{
     [XmlType("spellSavingThrowTarget")]
     public enum SpellSavingThrowTarget
     {
@@ -18,6 +24,6 @@
         Will = 3,
 
         [XmlEnum("special")]
-        Special = 4,
+        Special = 4
     }
 }

@@ -1,9 +1,15 @@
-﻿namespace PathfinderDb.Schema
-{
-    using System;
-    using System.ComponentModel;
-    using System.Xml.Serialization;
+﻿// -----------------------------------------------------------------------
+// <copyright file="ElementReference.cs" organization="Pathfinder-Fr">
+// Copyright (c) Pathfinder-fr. Tous droits reserves.
+// </copyright>
+// -----------------------------------------------------------------------
 
+using System;
+using System.ComponentModel;
+using System.Xml.Serialization;
+
+namespace PathfinderDb.Schema
+{
     [XmlType("itemReference")]
     public class ElementReference
     {
@@ -20,8 +26,8 @@
         [EditorBrowsable(EditorBrowsableState.Never)]
         public string HrefString
         {
-            get { return this.Href == null ? null : this.Href.ToString(); }
-            set { this.Href = value == null ? null : new Uri(value); }
+            get { return Href == null ? null : Href.ToString(); }
+            set { Href = value == null ? null : new Uri(value); }
         }
     }
 }

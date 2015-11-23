@@ -1,8 +1,14 @@
-﻿namespace PathfinderDb.Schema
-{
-    using System;
-    using System.Xml.Serialization;
+﻿// -----------------------------------------------------------------------
+// <copyright file="SpellDescriptors.cs" organization="Pathfinder-Fr">
+// Copyright (c) Pathfinder-fr. Tous droits reserves.
+// </copyright>
+// -----------------------------------------------------------------------
 
+using System;
+using System.Xml.Serialization;
+
+namespace PathfinderDb.Schema
+{
     [Flags]
     [XmlType("spellDescriptor")]
     public enum SpellDescriptors
@@ -65,7 +71,7 @@
         MindAffecting = 1 << 18,
 
         /// <remarks>
-        /// Added in Ultimate Magic.
+        ///     Added in Ultimate Magic.
         /// </remarks>
         [XmlEnum("shadow")]
         Shadow = 1 << 19,
@@ -80,33 +86,33 @@
         Water = 1 << 22,
 
         /// <remarks>
-        /// Added in Ultimate Magic.
+        ///     Added in Ultimate Magic.
         /// </remarks>
         [XmlEnum("curse")]
         Curse = 1 << 23,
 
         /// <remarks>
-        /// Added in Ultimate Magic.
+        ///     Added in Ultimate Magic.
         /// </remarks>
         [XmlEnum("disease")]
         Disease = 1 << 24,
 
         /// <remarks>
-        /// Added in Ultimate Magic.
+        ///     Added in Ultimate Magic.
         /// </remarks>
         [XmlEnum("emotion")]
         Emotion = 1 << 25,
 
         /// <remarks>
-        /// Added in Ultimate Magic.
+        ///     Added in Ultimate Magic.
         /// </remarks>
         [XmlEnum("pain")]
         Pain = 1 << 26,
 
         /// <remarks>
-        /// Added in Ultimate Magic.
+        ///     Added in Ultimate Magic.
         /// </remarks>
         [XmlEnum("poison")]
-        Poison = 1 << 27,
+        Poison = 1 << 27
     }
 }

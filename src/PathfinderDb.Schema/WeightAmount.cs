@@ -1,26 +1,32 @@
-﻿namespace PathfinderDb.Schema
-{
-    using System;
-    using System.ComponentModel;
-    using System.Xml.Serialization;
+﻿// -----------------------------------------------------------------------
+// <copyright file="WeightAmount.cs" organization="Pathfinder-Fr">
+// Copyright (c) Pathfinder-fr. Tous droits reserves.
+// </copyright>
+// -----------------------------------------------------------------------
 
+using System;
+using System.ComponentModel;
+using System.Xml.Serialization;
+
+namespace PathfinderDb.Schema
+{
     /// <summary>
-    /// Describes a weight, using a value and a unit.
+    ///     Describes a weight, using a value and a unit.
     /// </summary>
     [XmlType("weight")]
     public class WeightAmount
     {
         /// <summary>
-        /// Gets or sets the unit used to describe the weight.
+        ///     Gets or sets the unit used to describe the weight.
         /// </summary>
         [XmlAttribute("unit")]
         public WeightUnit Unit { get; set; }
 
         /// <summary>
-        /// Gets or sets the value sued to describe the weight.
+        ///     Gets or sets the value sued to describe the weight.
         /// </summary>
         [XmlAttribute("value")]
-        [DefaultValue(typeof(decimal), "0")]
+        [DefaultValue(typeof (decimal), "0")]
         public decimal Value { get; set; }
 
         [XmlText]
@@ -28,13 +34,13 @@
 
         public WeightAmount ConvertTo(WeightUnit unit)
         {
-            if (unit == this.Unit)
+            if (unit == Unit)
             {
                 return this;
             }
 
             var ratio = 1m;
-            switch (this.Unit)
+            switch (Unit)
             {
                 case WeightUnit.Kilogram:
                     switch (unit)
@@ -59,9 +65,9 @@
 
             return new WeightAmount
             {
-                Special = this.Special,
+                Special = Special,
                 Unit = unit,
-                Value = Math.Round(this.Value * ratio, 2)
+                Value = Math.Round(Value * ratio, 2)
             };
         }
     }

@@ -1,7 +1,13 @@
-﻿namespace PathfinderDb.Schema
-{
-    using System.Xml.Serialization;
+﻿// -----------------------------------------------------------------------
+// <copyright file="FeatPrerequisiteType.cs" organization="Pathfinder-Fr">
+// Copyright (c) Pathfinder-fr. Tous droits reserves.
+// </copyright>
+// -----------------------------------------------------------------------
 
+using System.Xml.Serialization;
+
+namespace PathfinderDb.Schema
+{
     [XmlType("featPrerequisiteType")]
     public enum FeatPrerequisiteType
     {
@@ -33,6 +39,6 @@
         SpellCast = 8,
 
         [XmlEnum("monsterRace")]
-        MonsterRace = 9,
+        MonsterRace = 9
     }
 }

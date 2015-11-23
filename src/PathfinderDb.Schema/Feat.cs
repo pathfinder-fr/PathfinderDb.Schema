@@ -1,37 +1,43 @@
-﻿namespace PathfinderDb.Schema
-{
-    using System.Diagnostics;
-    using System.Xml.Serialization;
+﻿// -----------------------------------------------------------------------
+// <copyright file="Feat.cs" organization="Pathfinder-Fr">
+// Copyright (c) Pathfinder-fr. Tous droits reserves.
+// </copyright>
+// -----------------------------------------------------------------------
 
+using System.Diagnostics;
+using System.Xml.Serialization;
+
+namespace PathfinderDb.Schema
+{
     [XmlType("feat", Namespace = Namespaces.PathfinderDb)]
     [DebuggerDisplay("{Name}")]
     public class Feat : Element
     {
         /// <summary>
-        /// Gets or sets the unique id of this feat.
+        ///     Gets or sets the unique id of this feat.
         /// </summary>
         [XmlAttribute("id")]
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or sets the name of this feat.
+        ///     Gets or sets the name of this feat.
         /// </summary>
         [XmlAttribute("name")]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the types of the feat.
+        ///     Gets or sets the types of the feat.
         /// </summary>
         [XmlArray("types")]
         [XmlArrayItem("type")]
         public FeatType[] Types { get; set; }
 
         /// <summary>
-        /// Gets or sets all prerequisites for this feat.
+        ///     Gets or sets all prerequisites for this feat.
         /// </summary>
         [XmlArray("prerequisites")]
-        [XmlArrayItem("prerequisite", Type = typeof(FeatPrerequisite))]
-        [XmlArrayItem("choice", Type = typeof(FeatPrerequisiteChoice))]
+        [XmlArrayItem("prerequisite", Type = typeof (FeatPrerequisite))]
+        [XmlArrayItem("choice", Type = typeof (FeatPrerequisiteChoice))]
         public object[] Prerequisites { get; set; }
 
         [XmlElement("summary")]

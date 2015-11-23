@@ -1,8 +1,14 @@
-﻿namespace PathfinderDb.Schema
-{
-    using System.Collections.Generic;
-    using System.Xml.Serialization;
+﻿// -----------------------------------------------------------------------
+// <copyright file="ElementLocalizationLanguage.cs" organization="Pathfinder-Fr">
+// Copyright (c) Pathfinder-fr. Tous droits reserves.
+// </copyright>
+// -----------------------------------------------------------------------
 
+using System.Collections.Generic;
+using System.Xml.Serialization;
+
+namespace PathfinderDb.Schema
+{
     [XmlType("language")]
     public class ElementLocalizationLanguage
     {
