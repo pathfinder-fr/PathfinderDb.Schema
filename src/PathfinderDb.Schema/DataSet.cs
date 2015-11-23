@@ -38,7 +38,7 @@
         [XmlArray("monsters")]
         public List<Monster> Monsters { get; set; }
 
-        [XmlAttribute("lang", Namespace = "http://www.w3.org/XML/1998/namespace")]
+        [XmlAttribute("lang", Namespace = Namespaces.Xml)]
         public string Lang { get; set; }
 
         public static DataSet Load(System.IO.Stream stream)

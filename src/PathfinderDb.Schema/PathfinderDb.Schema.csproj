@@ -118,7 +118,6 @@
     <Compile Include="SpellSchool.cs" />
     <Compile Include="SpellTarget.cs" />
     <Compile Include="TimeUnit.cs" />
-    <Compile Include="Url.cs" />
     <Compile Include="WeightAmount.cs" />
     <Compile Include="WeightUnit.cs" />
   </ItemGroup>
