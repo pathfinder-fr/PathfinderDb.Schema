@@ -16,6 +16,18 @@
   </Target>
   
   <Target Name="Pack" DependsOnTargets="Compile">
+    <ItemGroup>
+      <Nupkgs Include="$(OutDir)\*.nupkg" />
+    </ItemGroup>
+    <Delete Files="@(Nupkgs)" />
     <Exec Command="$(ToolFolder)\nuget.exe pack PathfinderDb.Schema.nuspec -version 1.0.1 -outputdirectory $(OutDir)" />
+  </Target>
+  
+  <Target Name="Push" DependsOnTargets="Pack">
+    <ItemGroup>
+      <Nupkgs Include="$(OutDir)\*.nupkg" />
+    </ItemGroup>
+    <Error Condition="'$(NUGET_APIKEY)' == ''" Text="You must set a Nuget API Key to push your package" />
+    <Exec Command="$(ToolFolder)\nuget.exe push @(NuPkgs) -apikey $(NUGET_APIKEY)" />
   </Target>
 </Project>
