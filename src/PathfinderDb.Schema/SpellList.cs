@@ -42,6 +42,8 @@ namespace PathfinderDb.Schema
             public const string Magus = "magus";
 
             public const string ElementalistWizard = "elementalistWizard";
+
+            public const string Shaman = "shaman";
         }
     }
 }
