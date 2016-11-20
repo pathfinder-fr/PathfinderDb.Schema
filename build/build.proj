@@ -15,16 +15,23 @@
     <MSBuild Projects="$(RootFolder)\PathfinderDb.Schema.sln" Targets="Build" Properties="Configuration=$(Configuration);OutDir=$(OutDir)" />
   </Target>
   
-  <Target Name="Pack" DependsOnTargets="Compile">
+  <Target Name="CleanPack">
     <ItemGroup>
       <Nupkgs Include="$(OutDir)*.nupkg" />
     </ItemGroup>
     <Delete Files="@(Nupkgs)" />
+  </Target>
+  
+  <Target Name="Pack" DependsOnTargets="Compile;CleanPack">
+    <Error Condition="'$(NuGetVersion)' == ''" Text="You must set a NuGetVersion to create your package. YOu can use /p:NuGetVersion=xxx" />
     <Exec Command="$(ToolFolder)\nuget.exe pack PathfinderDb.Schema.nuspec -version $(NuGetVersion) -outputdirectory $(OutDir)" />
   </Target>
   
   <Target Name="Push" DependsOnTargets="Pack">
+    <ItemGroup>
+      <Nupkgs2 Include="$(OutDir)*.nupkg" />
+    </ItemGroup>
     <Error Condition="'$(NUGET_APIKEY)' == ''" Text="You must set a Nuget API Key to push your package" />
-    <Exec Command="$(ToolFolder)\nuget.exe push @(NuPkgs) -apikey $(NUGET_APIKEY)" />
+    <Exec Command="$(ToolFolder)\nuget.exe push @(Nupkgs2) -apikey $(NUGET_APIKEY)" />
   </Target>
 </Project>
