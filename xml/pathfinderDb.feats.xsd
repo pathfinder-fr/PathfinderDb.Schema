@@ -49,6 +49,7 @@
       <xs:enumeration value="grit" />
       <xs:enumeration value="performance" />
       <xs:enumeration value="style" />
+      <xs:enumeration value="panache" />
     </xs:restriction>
   </xs:simpleType>
 

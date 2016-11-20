@@ -39,6 +39,9 @@ namespace PathfinderDb.Schema
         Performance = 8,
 
         [XmlEnum("style")]
-        Style = 9
+        Style = 9,
+
+        [XmlEnum("panache")]
+        Panache = 10
     }
 }
