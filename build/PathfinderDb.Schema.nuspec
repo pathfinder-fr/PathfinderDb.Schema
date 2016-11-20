@@ -4,7 +4,7 @@
     <id>PathfinderDb.Schema</id>
     <version>$version$</version>
     <title>PathfinderDb Schema Library</title>
-    <authors>Thomas BOLON</authors>
+    <authors>Thomas Bolon</authors>
     <owners>Pathfinder-fr.org</owners>
     <projectUrl>https://github.com/Pathfinder-Fr/PathfinderDb.Schema</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
