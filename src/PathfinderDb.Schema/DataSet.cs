@@ -74,6 +74,7 @@ namespace PathfinderDb.Schema
             Copy(() => other.Sources, () => Sources, t => Sources = t);
             Copy(() => other.Feats, () => Feats, t => Feats = t);
             Copy(() => other.Spells, () => Spells, t => Spells = t);
+            Copy(() => other.Monsters, () => Monsters, t => Monsters = t);
         }
 
         private void Copy<T>(Func<List<T>> getSource, Func<List<T>> getTarget, Action<List<T>> setTarget)
