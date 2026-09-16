@@ -444,3 +444,52 @@ La remise en service est terminée uniquement lorsque :
 - [ ] les outils de build historiques ont été supprimés ;
 - [ ] les prochaines évolutions du modèle sont séparées de la migration
   technique et couvertes par des tests.
+
+---
+
+## Point de reprise — 16 septembre 2026
+
+### Réalisé
+
+- Le projet a été modernisé en projets SDK-style :
+  - bibliothèque `netstandard2.0` ;
+  - tests `net8.0` ;
+  - build et tests locaux fonctionnels.
+- Les tests de compatibilité XML/JSON et les fixtures historiques compactes ont
+  été ajoutés.
+- La documentation a été rationalisée sous `docs/` et les anciennes références
+  `doc/` ont été supprimées.
+- Le packaging NuGet est configuré avec README, licence, icône, XSD, exemples,
+  documentation XML et symboles.
+- Le script `build/Validate-Package.ps1` inspecte le package produit.
+- Les workflows `.github/workflows/ci.yml` et
+  `.github/workflows/publish.yml` sont présents.
+- Les anciens outils de build et le nuspec manuel ont été supprimés.
+- `pf1-tools` a été compilé localement avec `PathfinderDb.Schema
+  2.0.0-preview.1` depuis un flux NuGet local, sans `ProjectReference`.
+- Les commandes `spells`, `feats` et `monsters` ont été exécutées sur le corpus
+  local ; les sorties et diagnostics ont été générés.
+- La validation est documentée dans
+  `docs/pf1-tools-preview-validation.md`.
+
+### Commits locaux
+
+Le dépôt est propre et en avance de huit commits sur `origin/master`. Le
+dernier commit est `c90fd9d` (`Validate pf1-tools against schema preview`).
+Aucun push distant n'a encore été effectué.
+
+### À faire lors de la prochaine session
+
+1. Pousser les commits vers GitHub après confirmation.
+2. Configurer l'environnement GitHub protégé `nuget`.
+3. Créer le secret `NUGET_API_KEY` avec une clé NuGet limitée au push de
+   packages.
+4. Déclencher et surveiller le workflow CI sur GitHub.
+5. Créer le tag `v2.0.0-preview.1` et vérifier le workflow de publication.
+6. Vérifier le package et la release sur GitHub et NuGet.org.
+7. Restaurer `pf1-tools` depuis NuGet.org, puis comparer les sorties avec
+   `pf1-data` avant toute publication stable.
+
+La publication distante est actuellement bloquée uniquement par les actions
+GitHub et les secrets/environments du dépôt ; aucune clé sensible n'a été
+enregistrée localement.
