@@ -12,7 +12,7 @@ tests/PathfinderDb.Schema.Tests/ Tests et fixtures de compatibilité
 xml/                              Schémas XSD et exemples XML
 docs/                             Documentation du projet
 docs/reference/                   Références historiques du modèle
-build/                            Ancien pipeline MSBuild/NuGet, à supprimer en M3
+build/                            Scripts de validation et outils de build
 ```
 
 Les fichiers XSD de `xml/` décrivent le contrat XML public. Les exemples associés servent de fixtures de compatibilité et doivent rester valides après chaque évolution du modèle.

@@ -232,10 +232,10 @@ précisément toute régression dans `pf1-tools` ou dans les exports historiques
 
 ### Nettoyage des outils historiques
 
-- [ ] Supprimer `build/build.proj` après validation du nouveau pipeline.
-- [ ] Supprimer `build.cmd` après validation de la commande locale moderne.
-- [ ] Supprimer `build/nuget.exe`.
-- [ ] Supprimer le nuspec manuel si le `.csproj` couvre entièrement les
+- [x] Supprimer `build/build.proj` après validation du nouveau pipeline.
+- [x] Supprimer `build.cmd` après validation de la commande locale moderne.
+- [x] Supprimer `build/nuget.exe`.
+- [x] Supprimer le nuspec manuel si le `.csproj` couvre entièrement les
   métadonnées.
 - [ ] Mettre à jour `.gitignore` pour les sorties `artifacts/`, `bin/`, `obj/`
   et packages.
@@ -253,33 +253,33 @@ précisément toute régression dans `pf1-tools` ou dans les exports historiques
 
 ### Workflow de validation
 
-- [ ] Ajouter un workflow déclenché sur pull request.
-- [ ] Ajouter un workflow déclenché sur push de la branche principale.
-- [ ] Utiliser une version SDK .NET stable et explicitement supportée.
-- [ ] Exécuter `dotnet restore`.
-- [ ] Exécuter `dotnet build -c Release --no-restore`.
-- [ ] Exécuter `dotnet test -c Release --no-build`.
-- [ ] Exécuter `dotnet pack -c Release --no-build` avec une version CI.
-- [ ] Inspecter automatiquement le contenu du package.
-- [ ] Publier le package de validation comme artifact de workflow.
-- [ ] Configurer la concurrence pour éviter deux publications simultanées.
+- [x] Ajouter un workflow déclenché sur pull request.
+- [x] Ajouter un workflow déclenché sur push de la branche principale.
+- [x] Utiliser une version SDK .NET stable et explicitement supportée.
+- [x] Exécuter `dotnet restore`.
+- [x] Exécuter `dotnet build -c Release --no-restore`.
+- [x] Exécuter `dotnet test -c Release --no-build`.
+- [x] Exécuter `dotnet pack -c Release --no-build` avec une version CI.
+- [x] Inspecter automatiquement le contenu du package.
+- [x] Publier le package de validation comme artifact de workflow.
+- [x] Configurer la concurrence pour éviter deux publications simultanées.
 
 ### Workflow de publication
 
-- [ ] Déclencher la publication uniquement sur les tags SemVer.
-- [ ] Accepter les tags de préversion, par exemple `v2.0.0-preview.1`.
-- [ ] Accepter les tags stables, par exemple `v2.0.0`.
-- [ ] Extraire la version depuis le tag après validation stricte.
-- [ ] Vérifier que la version du package correspond au tag.
-- [ ] Rejouer restore, build, tests et pack dans le job de publication.
-- [ ] Publier `.nupkg` et `.snupkg` sur NuGet.org.
-- [ ] Utiliser `https://api.nuget.org/v3/index.json` comme source.
-- [ ] Utiliser un secret GitHub `NUGET_API_KEY`.
-- [ ] Ne jamais afficher la clé dans les logs ou les scripts.
-- [ ] Utiliser `--skip-duplicate` pour rendre le job rejouable.
-- [ ] Utiliser un environment GitHub protégé pour la publication stable.
-- [ ] Conserver les packages publiés comme artifacts.
-- [ ] Créer ou mettre à jour une GitHub Release associée au tag.
+- [x] Déclencher la publication uniquement sur les tags SemVer.
+- [x] Accepter les tags de préversion, par exemple `v2.0.0-preview.1`.
+- [x] Accepter les tags stables, par exemple `v2.0.0`.
+- [x] Extraire la version depuis le tag après validation stricte.
+- [x] Vérifier que la version du package correspond au tag.
+- [x] Rejouer restore, build, tests et pack dans le job de publication.
+- [x] Publier `.nupkg` et `.snupkg` sur NuGet.org.
+- [x] Utiliser `https://api.nuget.org/v3/index.json` comme source.
+- [x] Utiliser un secret GitHub `NUGET_API_KEY`.
+- [x] Ne jamais afficher la clé dans les logs ou les scripts.
+- [x] Utiliser `--skip-duplicate` pour rendre le job rejouable.
+- [x] Utiliser un environment GitHub protégé pour la publication stable.
+- [x] Conserver les packages publiés comme artifacts.
+- [x] Créer ou mettre à jour une GitHub Release associée au tag.
 
 ### Critères de sortie M4
 
