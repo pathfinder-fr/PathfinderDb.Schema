@@ -109,15 +109,15 @@ précisément toute régression dans `pf1-tools` ou dans les exports historiques
 
 ### Bibliothèque
 
-- [ ] Remplacer le projet Portable historique par un projet SDK-style.
-- [ ] Cibler `netstandard2.0` comme framework unique de la bibliothèque.
+- [x] Remplacer le projet Portable historique par un projet SDK-style.
+- [x] Cibler `netstandard2.0` comme framework unique de la bibliothèque.
 - [ ] Vérifier la compatibilité avec le parser .NET Framework 4.8.
-- [ ] Supprimer les références explicites aux profils Portable.
-- [ ] Supprimer les imports MSBuild Visual Studio 2010/2015.
-- [ ] Déplacer les métadonnées d'assembly dans le `.csproj`.
-- [ ] Supprimer ou désactiver les valeurs historiques incohérentes de
+- [x] Supprimer les références explicites aux profils Portable.
+- [x] Supprimer les imports MSBuild Visual Studio 2010/2015.
+- [x] Déplacer les métadonnées d'assembly dans le `.csproj`.
+- [x] Supprimer ou désactiver les valeurs historiques incohérentes de
   `AssemblyVersion` et `AssemblyFileVersion`.
-- [ ] Préserver le namespace `PathfinderDb.Schema`.
+- [x] Préserver le namespace `PathfinderDb.Schema`.
 - [ ] Préserver les attributs `XmlType`, `XmlRoot`, `XmlElement`, `XmlArray` et
   `XmlAttribute` existants tant qu'une rupture n'est pas documentée.
 - [ ] Activer les nullable annotations uniquement après avoir évalué leur impact
@@ -125,19 +125,19 @@ précisément toute régression dans `pf1-tools` ou dans les exports historiques
 
 ### Projet de tests
 
-- [ ] Remplacer le projet MSTest historique par un projet SDK-style.
-- [ ] Utiliser un framework de test moderne et `Microsoft.NET.Test.Sdk`.
-- [ ] Cibler un framework SDK stable pour l'exécution des tests, par exemple
+- [x] Remplacer le projet MSTest historique par un projet SDK-style.
+- [x] Utiliser un framework de test moderne et `Microsoft.NET.Test.Sdk`.
+- [x] Cibler un framework SDK stable pour l'exécution des tests, par exemple
   `net8.0`.
-- [ ] Référencer la bibliothèque par `ProjectReference` pendant les tests
+- [x] Référencer la bibliothèque par `ProjectReference` pendant les tests
   unitaires.
-- [ ] Préparer des tests qui pourront ensuite référencer le package produit.
+- [x] Préparer des tests qui pourront ensuite référencer le package produit.
 
 ### Critères de sortie M1
 
-- [ ] `dotnet restore` fonctionne sur une machine propre.
-- [ ] `dotnet build -c Release` fonctionne sans Visual Studio historique.
-- [ ] `dotnet test -c Release` fonctionne avec le SDK installé sur l'agent CI.
+- [x] `dotnet restore` fonctionne sur une machine propre.
+- [x] `dotnet build -c Release` fonctionne sans Visual Studio historique.
+- [x] `dotnet test -c Release` fonctionne avec le SDK installé sur l'agent CI.
 - [ ] Le parser .NET Framework 4.8 peut référencer une build `netstandard2.0`.
 
 ---
