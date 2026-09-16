@@ -155,9 +155,11 @@ précisément toute régression dans `pf1-tools` ou dans les exports historiques
 - [ ] Tester les enums sérialisés sous forme d'attributs et les valeurs combinées
   de descripteurs.
 - [ ] Vérifier que les anciennes fixtures XML sont toujours désérialisables.
-- [ ] Vérifier que les sorties XML conservent `urn:pathfinderDb`.
+- [x] Vérifier que les sorties XML conservent `urn:pathfinderDb`.
 - [ ] Ajouter une validation XSD des documents produits lorsque cela est
   applicable.
+- [x] Ajouter des tests de désérialisation des extraits historiques compacts
+  pour les sorts, dons et monstres.
 
 ### Sérialisation JSON
 
