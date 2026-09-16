@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dataSet xmlns="urn:pathfinderDb">
+  <sources>
+    <source id="uc" />
+    <source id="pfrpg" />
+    <source id="um" />
+  </sources>
+  <spells>
+    <spell id="abondance-de-munitions" school="conjuration">
+      <source id="uc">
+        <references>
+          <reference href="http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Abondance de munitions.ashx">Wiki Pathfinder-fr.org</reference>
+        </references>
+      </source>
+      <localization>
+        <language xml:lang="en-US">
+          <entry href="name">Abundant Ammunition</entry>
+        </language>
+      </localization>
+      <name>Abondance de munitions</name>
+      <levels>
+        <level list="bard" level="1" />
+        <level list="sorcerer-wizard" level="1" />
+        <level list="ranger" level="1" />
+        <level list="cleric" level="1" />
+        <level list="oracle" level="1" />
+      </levels>
+      <components kinds="V S M/DF">une munition</components>
+    </spell>
+  </spells>
+</dataSet>

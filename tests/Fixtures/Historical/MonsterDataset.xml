@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dataSet xmlns="urn:pathfinderDb">
+  <sources>
+    <source id="bestiary" />
+  </sources>
+  <spells />
+  <spellLists />
+  <feats />
+  <monsters>
+    <monster id="aasimar" name="Aasimar" cr="0.5" climate="temperate" environment="urban" type="outsider">
+      <source id="bestiary" />
+    </monster>
+    <monster id="aboleth" name="Aboleth" cr="7" climate="temperate" environment="aquatic" type="aberration">
+      <source id="bestiary" />
+    </monster>
+  </monsters>
+</dataSet>

@@ -1,0 +1,46 @@
+{
+  "namespace": "urn:pathfinderDb",
+  "rootElement": "dataSet",
+  "currentFixtures": [
+    {
+      "path": "xml/samples/DataSetHeader.xml",
+      "kind": "legacy-header-localization",
+      "contractStatus": "needs-verification"
+    },
+    {
+      "path": "xml/samples/Feat.xml",
+      "kind": "feat",
+      "contractStatus": "current-candidate"
+    },
+    {
+      "path": "xml/samples/Spell.xml",
+      "kind": "spell",
+      "contractStatus": "current-candidate"
+    },
+    {
+      "path": "xml/samples/Monster.xml",
+      "kind": "monster",
+      "contractStatus": "historical-incompatible"
+    }
+  ],
+  "historicalFixtures": [
+    {
+      "repository": "WikiExportParser-Decompile",
+      "path": "Out/spells.xml",
+      "kind": "spells",
+      "localExtract": "tests/Fixtures/Historical/SpellDataset.xml"
+    },
+    {
+      "repository": "WikiExportParser-Decompile",
+      "path": "Out/feats.xml",
+      "kind": "feats",
+      "localExtract": "tests/Fixtures/Historical/FeatDataset.xml"
+    },
+    {
+      "repository": "WikiExportParser-Decompile",
+      "path": "Out/bestiary/monsters.xml",
+      "kind": "monsters",
+      "localExtract": "tests/Fixtures/Historical/MonsterDataset.xml"
+    }
+  ]
+}

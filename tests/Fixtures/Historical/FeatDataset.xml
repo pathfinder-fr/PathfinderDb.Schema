@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dataSet xmlns="urn:pathfinderDb">
+  <sources>
+    <source id="uc" />
+    <source id="pfrpg" />
+    <source id="um" />
+  </sources>
+  <spells />
+  <spellLists />
+  <feats>
+    <feat id="adepte-de-la-matraque" name="Adepte de la matraque">
+      <source id="uc">
+        <references>
+          <reference href="http://www.pathfinder-fr.org/Wiki/Pathfinder-RPG.Adepte de la matraque.ashx">Wiki Pathfinder-fr.org</reference>
+        </references>
+      </source>
+      <types>
+        <type>combat</type>
+      </types>
+      <description>Le personnage sait exactement où frapper pour assommer ses adversaires.</description>
+    </feat>
+  </feats>
+</dataSet>
