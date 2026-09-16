@@ -146,7 +146,7 @@ précisément toute régression dans `pf1-tools` ou dans les exports historiques
 
 ### Sérialisation XML
 
-- [ ] Ajouter des tests XML aller-retour pour `DataSet`.
+- [x] Ajouter des tests XML aller-retour pour `DataSet`.
 - [ ] Ajouter des tests pour `Spell`, `Feat`, `Monster`, `Source` et
   `ElementSource`.
 - [ ] Tester les propriétés nulles, vides et absentes.
@@ -163,9 +163,9 @@ précisément toute régression dans `pf1-tools` ou dans les exports historiques
 
 ### Sérialisation JSON
 
-- [ ] Identifier et documenter le sérialiseur JSON utilisé par `pf1-tools`.
-- [ ] Ajouter des tests de sérialisation et désérialisation JSON.
-- [ ] Vérifier les noms de propriétés attendus par les consommateurs.
+- [x] Identifier et documenter le sérialiseur JSON utilisé par `pf1-tools`.
+- [x] Ajouter des tests de sérialisation et désérialisation JSON.
+- [x] Vérifier les noms de propriétés attendus par les consommateurs.
 - [ ] Vérifier le comportement des propriétés nulles et des collections vides.
 - [ ] Ajouter au moins un test sur une sortie JSON historique de sorts, dons et
   monstres.
