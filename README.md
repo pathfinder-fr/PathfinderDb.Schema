@@ -53,6 +53,26 @@ Après publication d'une nouvelle version :
 
 La prochaine version doit privilégier un projet SDK moderne et un pipeline `dotnet restore`, `dotnet build`, `dotnet test` et `dotnet pack`. Le vieux profil .NET Portable, le projet MSBuild personnalisé et le `nuget.exe` embarqué ne sont pas des contraintes à préserver.
 
+## Développement et package
+
+```powershell
+dotnet restore .\PathfinderDb.Schema.sln
+dotnet build .\PathfinderDb.Schema.sln -c Release --no-restore
+dotnet test .\PathfinderDb.Schema.sln -c Release --no-build
+dotnet pack .\src\PathfinderDb.Schema\PathfinderDb.Schema.csproj `
+  -c Release --no-build -o .\artifacts `
+  -p:PackageVersion=2.0.0-preview.1
+pwsh .\build\Validate-Package.ps1 `
+  -PackagePath .\artifacts\PathfinderDb.Schema.2.0.0-preview.1.nupkg
+```
+
+Les artefacts générés sont limités à `.\artifacts\` à la racine du projet.
+Le dossier `build/` contient uniquement les scripts et outils de construction.
+Le package inclut le README, la licence, l'icône, les schémas XSD et les
+exemples XML.
+La publication NuGet sera effectuée par GitHub Actions à partir d'un tag
+SemVer, après validation de cette même séquence.
+
 La version cible pourra modifier le contrat de manière cassante si cela permet :
 
 - de supprimer les artefacts et outils obsolètes ;

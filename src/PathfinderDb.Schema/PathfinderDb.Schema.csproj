@@ -16,6 +16,34 @@
     <Description>PathfinderDb project schema library.</Description>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/pathfinder-fr/PathfinderDb.Schema</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
     <PackageTags>pathfinder;schema;xml;serialization</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>package-icon.png</PackageIcon>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md"
+          Pack="true"
+          PackagePath="README.md"
+          Link="README.md" />
+    <None Include="..\..\LICENSE.txt"
+          Pack="true"
+          PackagePath="LICENSE.txt"
+          Link="LICENSE.txt" />
+    <None Include="..\..\package-icon.png"
+          Pack="true"
+          PackagePath="package-icon.png"
+          Link="package-icon.png" />
+    <None Include="..\..\xml\**\*.xsd"
+          Pack="true"
+          PackagePath="docs\xsd\%(RecursiveDir)%(Filename)%(Extension)"
+          Link="docs\xsd\%(RecursiveDir)%(Filename)%(Extension)" />
+    <None Include="..\..\xml\samples\**\*.xml"
+          Pack="true"
+          PackagePath="docs\samples\%(RecursiveDir)%(Filename)%(Extension)"
+          Link="docs\samples\%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
 </Project>

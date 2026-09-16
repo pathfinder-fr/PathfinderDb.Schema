@@ -1,4 +1,5 @@
-artifacts/
+# Generated packages and build outputs are kept at the repository root.
+/artifacts/
 
 #################
 ## Eclipse

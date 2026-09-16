@@ -194,7 +194,7 @@ précisément toute régression dans `pf1-tools` ou dans les exports historiques
 
 ### Métadonnées NuGet
 
-- [ ] Définir dans le projet :
+- [x] Définir dans le projet :
   - `PackageId` = `PathfinderDb.Schema`
   - auteurs et propriétaires ;
   - description ;
@@ -202,31 +202,32 @@ précisément toute régression dans `pf1-tools` ou dans les exports historiques
   - `RepositoryUrl` ;
   - `PackageTags` ;
   - `PackageReadmeFile`.
-- [ ] Ajouter le README et `LICENSE.txt` au package.
-- [ ] Générer le fichier XML de documentation.
-- [ ] Générer les symboles au format `.snupkg`.
-- [ ] Désactiver `GeneratePackageOnBuild` par défaut.
-- [ ] Fournir une commande documentée pour produire localement un package.
-- [ ] Ne pas coder la version définitive en dur dans le pipeline.
+- [x] Définir une icône de package embarquée dans le `.nupkg`.
+- [x] Ajouter le README et `LICENSE.txt` au package.
+- [x] Générer le fichier XML de documentation.
+- [x] Générer les symboles au format `.snupkg`.
+- [x] Désactiver `GeneratePackageOnBuild` par défaut.
+- [x] Fournir une commande documentée pour produire localement un package.
+- [x] Ne pas coder la version définitive en dur dans le pipeline.
 
 ### Contenu du package
 
-- [ ] Inclure `lib/netstandard2.0/PathfinderDb.Schema.dll`.
-- [ ] Inclure le XML de documentation associé.
-- [ ] Inclure les XSD utiles au contrat XML.
-- [ ] Inclure les exemples XML pertinents.
-- [ ] Inclure la licence et le README.
-- [ ] Vérifier qu'aucun fichier temporaire, PDB non souhaité ou chemin local
+- [x] Inclure `lib/netstandard2.0/PathfinderDb.Schema.dll`.
+- [x] Inclure le XML de documentation associé.
+- [x] Inclure les XSD utiles au contrat XML.
+- [x] Inclure les exemples XML pertinents.
+- [x] Inclure la licence et le README.
+- [x] Vérifier qu'aucun fichier temporaire, PDB non souhaité ou chemin local
   n'est embarqué.
 
 ### Validation automatique
 
-- [ ] Ajouter une validation qui inspecte le contenu du `.nupkg`.
-- [ ] Vérifier le framework `netstandard2.0`.
-- [ ] Vérifier la présence du README, de la licence, du XML et des XSD.
-- [ ] Vérifier l'identifiant et la version du package.
-- [ ] Vérifier que le package est installable dans un projet de test externe.
-- [ ] Tester une restauration via NuGet plutôt qu'uniquement via
+- [x] Ajouter une validation qui inspecte le contenu du `.nupkg`.
+- [x] Vérifier le framework `netstandard2.0`.
+- [x] Vérifier la présence du README, de la licence, du XML et des XSD.
+- [x] Vérifier l'identifiant et la version du package.
+- [x] Vérifier que le package est installable dans un projet de test externe.
+- [x] Tester une restauration via NuGet plutôt qu'uniquement via
   `ProjectReference`.
 
 ### Nettoyage des outils historiques
