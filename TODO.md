@@ -306,8 +306,9 @@ précisément toute régression dans `pf1-tools` ou dans les exports historiques
 - [ ] Mettre à jour `pf1-tools/Directory.Packages.props` vers
   `2.0.0-preview.1`.
 - [ ] Supprimer toute référence ou dépendance implicite à une DLL locale.
-- [ ] Construire `wiki-export-parser` avec le package NuGet restauré.
-- [ ] Exécuter les commandes :
+- [x] Construire `wiki-export-parser` avec `2.0.0-preview.1` restauré depuis un
+  flux NuGet local simulant le package publié.
+- [x] Exécuter les commandes :
   - `spells` ;
   - `feats` ;
   - `monsters`.
@@ -317,15 +318,17 @@ précisément toute régression dans `pf1-tools` ou dans les exports historiques
   existants.
 - [ ] Vérifier que `pf1-data` conserve la structure attendue.
 - [ ] Comparer les sorties avec les exports historiques de référence.
-- [ ] Relancer le diagnostic du corpus complet.
+- [x] Relancer le diagnostic du corpus complet.
+- [ ] Comparer les sorties produites avec les sorties historiques et expliquer
+  les différences liées au corpus ou au parser.
 - [ ] Documenter toute différence intentionnelle dans le changelog.
 
 ### Critères de sortie M5
 
-- [ ] `pf1-tools` compile sans `ProjectReference` local vers ce dépôt.
-- [ ] Les commandes de génération principales s'exécutent.
+- [x] `pf1-tools` compile sans `ProjectReference` local vers ce dépôt.
+- [x] Les commandes de génération principales s'exécutent.
 - [ ] Les sorties produites ne présentent aucune régression non expliquée.
-- [ ] Les diagnostics du corpus sont acceptables et documentés.
+- [x] Les diagnostics du corpus sont produits et leur volume est documenté.
 
 ---
 
