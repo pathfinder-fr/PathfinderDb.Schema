@@ -82,6 +82,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      id-token: write
     environment:
       name: nuget
       url: https://www.nuget.org/packages/PathfinderDb.Schema
@@ -93,13 +94,19 @@ jobs:
           name: nuget-release-${{ needs.package.outputs.package-version }}
           path: artifacts
 
+      - name: NuGet login (OIDC)
+        id: nuget-login
+        uses: NuGet/login@v1
+        with:
+          user: ${{ vars.NUGET_USER }}
+
       - name: Push packages
         shell: pwsh
         env:
-          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+          NUGET_API_KEY: ${{ steps.nuget-login.outputs.NUGET_API_KEY }}
         run: |
           if ([string]::IsNullOrWhiteSpace($env:NUGET_API_KEY)) {
-            throw 'NUGET_API_KEY is not configured in the nuget environment.'
+            throw 'NuGet trusted publishing did not return a temporary API key.'
           }
 
           Get-ChildItem ./artifacts -File |

@@ -71,7 +71,8 @@ Le dossier `build/` contient uniquement les scripts et outils de construction.
 Le package inclut le README, la licence, l'icône, les schémas XSD et les
 exemples XML ainsi que le changelog de migration.
 La publication NuGet sera effectuée par GitHub Actions à partir d'un tag
-SemVer, après validation de cette même séquence.
+SemVer, après validation de cette même séquence. Elle utilise Trusted
+Publishing avec OIDC et ne stocke pas de clé API NuGet persistante.
 
 La version cible pourra modifier le contrat de manière cassante si cela permet :
 
@@ -83,3 +84,5 @@ La version cible pourra modifier le contrat de manière cassante si cela permet 
 - de documenter explicitement la version du schéma.
 
 Voir `TODO.md` pour la feuille de route de cette migration.
+Voir `docs/trusted-publishing.md` pour configurer la policy NuGet.org et
+l'environnement GitHub de publication.

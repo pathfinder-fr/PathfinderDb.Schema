@@ -15,6 +15,8 @@ All notable changes to `PathfinderDb.Schema` are documented in this file.
 - Added compact XML compatibility fixtures and serialization tests.
 - Added package validation and GitHub Actions workflows for CI and release
   publication.
+- Configured the release workflow for NuGet Trusted Publishing with GitHub
+  Actions OIDC instead of a persistent API key.
 
 ### Compatibility
 

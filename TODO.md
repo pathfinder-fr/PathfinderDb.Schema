@@ -276,7 +276,8 @@ précisément toute régression dans `pf1-tools` ou dans les exports historiques
 - [x] Rejouer restore, build, tests et pack dans le job de publication.
 - [x] Publier `.nupkg` et `.snupkg` sur NuGet.org.
 - [x] Utiliser `https://api.nuget.org/v3/index.json` comme source.
-- [x] Utiliser un secret GitHub `NUGET_API_KEY`.
+- [x] Utiliser GitHub OIDC avec NuGet Trusted Publishing, sans clé API
+  persistante.
 - [x] Ne jamais afficher la clé dans les logs ou les scripts.
 - [x] Utiliser `--skip-duplicate` pour rendre le job rejouable.
 - [x] Utiliser un environment GitHub protégé pour la publication stable.
@@ -474,27 +475,26 @@ La remise en service est terminée uniquement lorsque :
 - La validation est documentée dans
   `docs/pf1-tools-preview-validation.md`.
 
-### Commits locaux
+### État Git
 
-Le dépôt est propre et en avance de huit commits sur `origin/master`. Le
-dernier commit est `c90fd9d` (`Validate pf1-tools against schema preview`).
-Aucun push distant n'a encore été effectué.
+Les commits précédents ont été poussés sur `origin/master`. La configuration
+Trusted Publishing est en cours sur l'environnement GitHub `nuget`.
 
 ### À faire lors de la prochaine session
 
 1. Pousser les commits vers GitHub après confirmation.
 2. Configurer l'environnement GitHub protégé `nuget`.
-3. Créer le secret `NUGET_API_KEY` avec une clé NuGet limitée au push de
-   packages.
+3. Créer la policy NuGet.org Trusted Publishing et la variable GitHub
+   `NUGET_USER`.
 4. Déclencher et surveiller le workflow CI sur GitHub.
 5. Créer le tag `v2.0.0-preview.1` et vérifier le workflow de publication.
 6. Vérifier le package et la release sur GitHub et NuGet.org.
 7. Restaurer `pf1-tools` depuis NuGet.org, puis comparer les sorties avec
    `pf1-data` avant toute publication stable.
 
-La publication distante est actuellement bloquée uniquement par les actions
-GitHub et les secrets/environments du dépôt ; aucune clé sensible n'a été
-enregistrée localement.
+La publication distante est actuellement bloquée uniquement par la création de
+la policy Trusted Publishing dans NuGet.org et la configuration de la variable
+`NUGET_USER` ; aucune clé sensible n'a été enregistrée localement.
 
 ### Mise à jour — 17 septembre 2026
 
@@ -509,6 +509,6 @@ publiés. Les travaux locaux suivants sont validés :
 - le contenu du package est validé automatiquement ;
 - le changelog de migration est inclus dans le package.
 
-Restent bloqués par des actions externes : publication sur NuGet.org,
-configuration du secret GitHub, exécution distante de la CI, restauration
-depuis NuGet.org et comparaison du corpus complet `pf1-tools`/`pf1-data`.
+Restent bloqués par des actions externes : création de la policy NuGet.org,
+publication sur NuGet.org, exécution distante de la CI, restauration depuis
+NuGet.org et comparaison du corpus complet `pf1-tools`/`pf1-data`.
