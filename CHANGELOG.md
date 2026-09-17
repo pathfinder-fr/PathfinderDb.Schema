@@ -2,7 +2,7 @@
 
 All notable changes to `PathfinderDb.Schema` are documented in this file.
 
-## [2.0.0-preview.1] - Unreleased
+## [2.0.0-preview.1] - 2026-09-17
 
 ### Changed
 
@@ -33,7 +33,7 @@ All notable changes to `PathfinderDb.Schema` are documented in this file.
 - Local Release build and tests pass.
 - Local preview package and symbol package are produced successfully.
 - The package content validator passes.
-- Publication to NuGet.org and remote `pf1-tools` validation remain pending
-  maintainer credentials and external corpus comparison.
+- Publication to NuGet.org succeeds through Trusted Publishing OIDC.
+- Remote `pf1-tools` validation and external corpus comparison remain pending.
 
 [2.0.0-preview.1]: https://github.com/pathfinder-fr/PathfinderDb.Schema/releases

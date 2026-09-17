@@ -31,7 +31,7 @@ regressions.
 
 ## Remaining M5 work
 
-- [ ] Publish `2.0.0-preview.1` to NuGet.org.
+- [x] Publish `2.0.0-preview.1` to NuGet.org.
 - [ ] Update `pf1-tools/Directory.Packages.props` permanently to the published
   preview.
 - [ ] Re-run the parser using the remote package, not the local package source.

@@ -299,9 +299,9 @@ précisément toute régression dans `pf1-tools` ou dans les exports historiques
 
 ### Préversion
 
-- [ ] Publier `2.0.0-preview.1`.
-- [ ] Vérifier que la version apparaît sur NuGet.org.
-- [ ] Vérifier le contenu et les frameworks du package distant.
+- [x] Publier `2.0.0-preview.1`.
+- [x] Vérifier que la version apparaît sur NuGet.org.
+- [x] Vérifier le contenu et les frameworks du package distant.
 - [ ] Vérifier qu'une restauration distante fonctionne sans source locale.
 
 ### Intégration `pf1-tools`
@@ -478,23 +478,21 @@ La remise en service est terminée uniquement lorsque :
 ### État Git
 
 Les commits précédents ont été poussés sur `origin/master`. La configuration
-Trusted Publishing est en cours sur l'environnement GitHub `nuget`.
+Trusted Publishing est configuré sur l'environnement GitHub `nuget` et la
+préversion `2.0.0-preview.1` a été publiée sur NuGet.org.
 
 ### À faire lors de la prochaine session
 
 1. Pousser les commits vers GitHub après confirmation.
 2. Configurer l'environnement GitHub protégé `nuget`.
-3. Créer la policy NuGet.org Trusted Publishing et la variable GitHub
-   `NUGET_USER`.
-4. Déclencher et surveiller le workflow CI sur GitHub.
-5. Créer le tag `v2.0.0-preview.1` et vérifier le workflow de publication.
-6. Vérifier le package et la release sur GitHub et NuGet.org.
-7. Restaurer `pf1-tools` depuis NuGet.org, puis comparer les sorties avec
+3. Déclencher et surveiller le workflow CI sur GitHub.
+4. Vérifier le package et la release sur GitHub et NuGet.org.
+5. Restaurer `pf1-tools` depuis NuGet.org, puis comparer les sorties avec
    `pf1-data` avant toute publication stable.
 
-La publication distante est actuellement bloquée uniquement par la création de
-la policy Trusted Publishing dans NuGet.org et la configuration de la variable
-`NUGET_USER` ; aucune clé sensible n'a été enregistrée localement.
+La publication distante de la préversion est terminée. La suite est bloquée
+uniquement par l'intégration distante de `pf1-tools` et la comparaison du
+corpus complet ; aucune clé sensible n'a été enregistrée localement.
 
 ### Mise à jour — 17 septembre 2026
 
@@ -509,6 +507,5 @@ publiés. Les travaux locaux suivants sont validés :
 - le contenu du package est validé automatiquement ;
 - le changelog de migration est inclus dans le package.
 
-Restent bloqués par des actions externes : création de la policy NuGet.org,
-publication sur NuGet.org, exécution distante de la CI, restauration depuis
+Restent bloqués par des actions externes : restauration de `pf1-tools` depuis
 NuGet.org et comparaison du corpus complet `pf1-tools`/`pf1-data`.

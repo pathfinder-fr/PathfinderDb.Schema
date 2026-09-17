@@ -4,6 +4,11 @@
 
 Le dépôt est volontairement indépendant de `pf1-tools`. Le parser consomme cette librairie comme un package NuGet et produit des fichiers conformes au schéma défini ici. Le dépôt historique `WikiExportParser-Decompile` contient une copie de référence du code et des sorties produites en 2019, mais ce dépôt est désormais la base de travail pour les prochaines versions.
 
+La version `2.0.0-preview.1` est publiée sur
+[NuGet.org](https://www.nuget.org/packages/PathfinderDb.Schema/2.0.0-preview.1).
+La [GitHub Release correspondante](https://github.com/pathfinder-fr/PathfinderDb.Schema/releases/tag/v2.0.0-preview.1)
+est générée par GitHub Actions via Trusted Publishing OIDC.
+
 ## Contenu du dépôt
 
 ```text
