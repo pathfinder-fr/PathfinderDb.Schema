@@ -190,5 +190,6 @@ the decompiled source text directly with this repository's source text.
 - [x] Current and historical fixture locations are recorded.
 - [x] Compact historical XML extracts are versioned in this repository.
 - [x] The legacy monster fixture is explicitly classified.
-- [ ] A machine-executable normalized XML comparison is added in M2.
+- [x] A machine-executable normalized XML comparison is added in M2 for the
+  compact versioned fixtures.
 - [ ] The complete parser output comparison is executed in M5.

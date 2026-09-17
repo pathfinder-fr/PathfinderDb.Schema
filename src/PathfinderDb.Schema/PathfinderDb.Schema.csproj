@@ -33,6 +33,10 @@
           Pack="true"
           PackagePath="LICENSE.txt"
           Link="LICENSE.txt" />
+    <None Include="..\..\CHANGELOG.md"
+          Pack="true"
+          PackagePath="CHANGELOG.md"
+          Link="CHANGELOG.md" />
     <None Include="..\..\package-icon.png"
           Pack="true"
           PackagePath="package-icon.png"

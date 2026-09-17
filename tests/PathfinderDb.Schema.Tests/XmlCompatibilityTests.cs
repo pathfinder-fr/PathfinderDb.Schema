@@ -7,6 +7,7 @@ using Newtonsoft.Json.Converters;
 using PathfinderDb.Schema;
 using SchemaDataSet = PathfinderDb.Schema.DataSet;
 using System.Xml.Serialization;
+using System.Linq;
 
 namespace Pathfinder.DataSet
 {
@@ -98,6 +99,70 @@ namespace Pathfinder.DataSet
 
             StringAssert.Contains(json, "\"School\":\"Conjuration\"");
             Assert.AreEqual(SpellSchool.Conjuration, roundTripped.Spells[0].School);
+        }
+
+        [DataTestMethod]
+        [DataRow("SpellDataset.xml", "spell")]
+        [DataRow("FeatDataset.xml", "feat")]
+        [DataRow("MonsterDataset.xml", "monster")]
+        public void HistoricalDatasetsShouldUseStringEnumJsonAndRoundTrip(string fileName, string kind)
+        {
+            var dataSet = LoadHistorical(fileName);
+            var settings = new JsonSerializerSettings();
+            settings.Converters.Add(new StringEnumConverter());
+
+            var json = JsonConvert.SerializeObject(dataSet, settings);
+            var restored = JsonConvert.DeserializeObject<SchemaDataSet>(json, settings);
+
+            if (kind == "spell")
+            {
+                Assert.AreEqual(dataSet.Spells.Count, restored.Spells.Count);
+                Assert.AreEqual(dataSet.Spells[0].School, restored.Spells[0].School);
+                StringAssert.Contains(json, "\"School\":\"Conjuration\"");
+            }
+            else if (kind == "feat")
+            {
+                Assert.AreEqual(dataSet.Feats.Count, restored.Feats.Count);
+                Assert.AreEqual(dataSet.Feats[0].Types[0], restored.Feats[0].Types[0]);
+                StringAssert.Contains(json, "\"Types\":[\"Combat\"]");
+            }
+            else
+            {
+                Assert.AreEqual(dataSet.Monsters.Count, restored.Monsters.Count);
+                Assert.AreEqual(dataSet.Monsters[1].Environment, restored.Monsters[1].Environment);
+                StringAssert.Contains(json, "\"Environment\":\"Aquatic\"");
+            }
+        }
+
+        [TestMethod]
+        public void CurrentSpellFixtureMatchesSerializedSpellAfterNormalizedXmlComparison()
+        {
+            var path = Path.Combine(AppContext.BaseDirectory, "Fixtures", "Current", "Spell.xml");
+            var expected = XDocument.Load(path).Descendants(XName.Get("spell", "urn:pathfinderDb")).Single();
+            var dataSet = SchemaDataSet.Load(File.OpenRead(path));
+            var serializer = new XmlSerializer(typeof(Spell), Namespaces.PathfinderDb);
+
+            string serialized;
+            using (var writer = new StringWriter())
+            {
+                serializer.Serialize(writer, dataSet.Spells.Single());
+                serialized = writer.ToString();
+            }
+
+            Assert.AreEqual(Canonicalize(expected), Canonicalize(XElement.Parse(serialized)));
+        }
+
+        private static string Canonicalize(XElement element)
+        {
+            var attributes = string.Join("|", element.Attributes()
+                .Where(a => !a.IsNamespaceDeclaration)
+                .OrderBy(a => a.Name.ToString())
+                .Select(a => a.Name + "=" + a.Value));
+            var children = string.Join("|", element.Elements()
+                .Select(Canonicalize)
+                .OrderBy(value => value, StringComparer.Ordinal));
+            var text = string.Concat(element.Nodes().OfType<XText>().Select(node => node.Value)).Trim();
+            return "<" + element.Name + " " + attributes + ">" + text + children + "</" + element.Name + ">";
         }
 
         private static SchemaDataSet LoadHistorical(string fileName)

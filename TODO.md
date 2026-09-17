@@ -101,7 +101,8 @@ précisément toute régression dans `pf1-tools` ou dans les exports historiques
 - [x] Les fixtures minimales sont stockées dans le dépôt.
 - [x] Le contrat XML historique est décrit.
 - [x] La surface publique consommée par `pf1-tools` est connue.
-- [ ] Une comparaison automatique des sorties historiques est possible.
+- [x] Une comparaison automatique des sorties historiques est possible pour
+  les fixtures compactes versionnées.
 
 ---
 
@@ -111,14 +112,15 @@ précisément toute régression dans `pf1-tools` ou dans les exports historiques
 
 - [x] Remplacer le projet Portable historique par un projet SDK-style.
 - [x] Cibler `netstandard2.0` comme framework unique de la bibliothèque.
-- [ ] Vérifier la compatibilité avec le parser .NET Framework 4.8.
+- [x] Vérifier la compatibilité avec le parser .NET Framework 4.8 via le package
+  preview consommé sans `ProjectReference` locale.
 - [x] Supprimer les références explicites aux profils Portable.
 - [x] Supprimer les imports MSBuild Visual Studio 2010/2015.
 - [x] Déplacer les métadonnées d'assembly dans le `.csproj`.
 - [x] Supprimer ou désactiver les valeurs historiques incohérentes de
   `AssemblyVersion` et `AssemblyFileVersion`.
 - [x] Préserver le namespace `PathfinderDb.Schema`.
-- [ ] Préserver les attributs `XmlType`, `XmlRoot`, `XmlElement`, `XmlArray` et
+- [x] Préserver les attributs `XmlType`, `XmlRoot`, `XmlElement`, `XmlArray` et
   `XmlAttribute` existants tant qu'une rupture n'est pas documentée.
 - [ ] Activer les nullable annotations uniquement après avoir évalué leur impact
   sur les consommateurs et la sérialisation.
@@ -138,7 +140,7 @@ précisément toute régression dans `pf1-tools` ou dans les exports historiques
 - [x] `dotnet restore` fonctionne sur une machine propre.
 - [x] `dotnet build -c Release` fonctionne sans Visual Studio historique.
 - [x] `dotnet test -c Release` fonctionne avec le SDK installé sur l'agent CI.
-- [ ] Le parser .NET Framework 4.8 peut référencer une build `netstandard2.0`.
+- [x] Le parser .NET Framework 4.8 peut référencer une build `netstandard2.0`.
 
 ---
 
@@ -147,14 +149,14 @@ précisément toute régression dans `pf1-tools` ou dans les exports historiques
 ### Sérialisation XML
 
 - [x] Ajouter des tests XML aller-retour pour `DataSet`.
-- [ ] Ajouter des tests pour `Spell`, `Feat`, `Monster`, `Source` et
+- [x] Ajouter des tests pour `Spell`, `Feat`, `Monster`, `Source` et
   `ElementSource`.
-- [ ] Tester les propriétés nulles, vides et absentes.
-- [ ] Tester les sources uniques et multiples.
-- [ ] Tester les références et localisations multiples.
-- [ ] Tester les enums sérialisés sous forme d'attributs et les valeurs combinées
+- [x] Tester les propriétés nulles, vides et absentes.
+- [x] Tester les sources uniques et multiples.
+- [x] Tester les références et localisations multiples.
+- [x] Tester les enums sérialisés sous forme d'attributs et les valeurs combinées
   de descripteurs.
-- [ ] Vérifier que les anciennes fixtures XML sont toujours désérialisables.
+- [x] Vérifier que les anciennes fixtures XML sont toujours désérialisables.
 - [x] Vérifier que les sorties XML conservent `urn:pathfinderDb`.
 - [ ] Ajouter une validation XSD des documents produits lorsque cela est
   applicable.
@@ -166,8 +168,8 @@ précisément toute régression dans `pf1-tools` ou dans les exports historiques
 - [x] Identifier et documenter le sérialiseur JSON utilisé par `pf1-tools`.
 - [x] Ajouter des tests de sérialisation et désérialisation JSON.
 - [x] Vérifier les noms de propriétés attendus par les consommateurs.
-- [ ] Vérifier le comportement des propriétés nulles et des collections vides.
-- [ ] Ajouter au moins un test sur une sortie JSON historique de sorts, dons et
+- [x] Vérifier le comportement des propriétés nulles et des collections vides.
+- [x] Ajouter au moins un test sur une sortie JSON historique de sorts, dons et
   monstres.
 
 ### Compatibilité des données
@@ -176,7 +178,7 @@ précisément toute régression dans `pf1-tools` ou dans les exports historiques
   sorts.
 - [ ] Ajouter un test de désérialisation d'un export historique complet de dons.
 - [ ] Ajouter un test de désérialisation d'un export historique de monstres.
-- [ ] Comparer les sorties normalisées avec les fixtures historiques.
+- [x] Comparer les sorties normalisées avec les fixtures historiques compactes.
 - [ ] Documenter les différences acceptées, notamment celles qui proviennent
   uniquement du formatage ou de l'ordre des propriétés.
 
@@ -242,9 +244,9 @@ précisément toute régression dans `pf1-tools` ou dans les exports historiques
 
 ### Critères de sortie M3
 
-- [ ] `dotnet pack -c Release` produit un `.nupkg` et un `.snupkg` valides.
-- [ ] Le package contient tous les fichiers attendus.
-- [ ] Le package peut être consommé par un projet `net48`.
+- [x] `dotnet pack -c Release` produit un `.nupkg` et un `.snupkg` valides.
+- [x] Le package contient tous les fichiers attendus.
+- [x] Le package peut être consommé par un projet `net48`.
 - [ ] Le package peut être consommé par un projet moderne.
 
 ---
@@ -420,7 +422,7 @@ de `pf1-tools`.
   - la commande de pack ;
   - la procédure de publication ;
   - la procédure d'intégration dans `pf1-tools`.
-- [ ] Ajouter un changelog de migration `1.0.3` vers `2.0.0`.
+- [x] Ajouter un changelog de migration `1.0.3` vers `2.0.0`.
 - [ ] Documenter le contrat XML et le namespace `urn:pathfinderDb`.
 - [ ] Documenter les fichiers XSD et les exemples.
 - [ ] Documenter la politique de versionnement.
@@ -493,3 +495,20 @@ Aucun push distant n'a encore été effectué.
 La publication distante est actuellement bloquée uniquement par les actions
 GitHub et les secrets/environments du dépôt ; aucune clé sensible n'a été
 enregistrée localement.
+
+### Mise à jour — 17 septembre 2026
+
+Le dépôt est maintenant synchronisé avec `origin/master`; le point de reprise
+précédent ne doit plus être interprété comme indiquant huit commits locaux non
+publiés. Les travaux locaux suivants sont validés :
+
+- 19 tests de contrat passent, incluant XML, JSON, enums, propriétés nulles ou
+  vides, sources, références, localisations et comparaison XML normalisée ;
+- le build Release de la solution passe ;
+- le package `2.0.0-preview.1` et ses symboles sont produits ;
+- le contenu du package est validé automatiquement ;
+- le changelog de migration est inclus dans le package.
+
+Restent bloqués par des actions externes : publication sur NuGet.org,
+configuration du secret GitHub, exécution distante de la CI, restauration
+depuis NuGet.org et comparaison du corpus complet `pf1-tools`/`pf1-data`.

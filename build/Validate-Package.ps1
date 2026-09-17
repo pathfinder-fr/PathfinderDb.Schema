@@ -10,6 +10,7 @@ Add-Type -AssemblyName System.IO.Compression.FileSystem
 $requiredEntries = @(
     'README.md',
     'LICENSE.txt',
+    'CHANGELOG.md',
     'package-icon.png',
     'lib/netstandard2.0/PathfinderDb.Schema.dll',
     'lib/netstandard2.0/PathfinderDb.Schema.xml',

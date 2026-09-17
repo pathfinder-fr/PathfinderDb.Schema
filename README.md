@@ -69,7 +69,7 @@ pwsh .\build\Validate-Package.ps1 `
 Les artefacts générés sont limités à `.\artifacts\` à la racine du projet.
 Le dossier `build/` contient uniquement les scripts et outils de construction.
 Le package inclut le README, la licence, l'icône, les schémas XSD et les
-exemples XML.
+exemples XML ainsi que le changelog de migration.
 La publication NuGet sera effectuée par GitHub Actions à partir d'un tag
 SemVer, après validation de cette même séquence.
 
