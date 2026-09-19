@@ -290,6 +290,41 @@ namespace Pathfinder.DataSet
         }
 
         [TestMethod]
+        public void DataSetResolvesLabelsWithRequestedEnglishDefaultAndKeyFallbacks()
+        {
+            var dataSet = new SchemaDataSet
+            {
+                Labels = new List<DataSetLabel>
+                {
+                    new DataSetLabel
+                    {
+                        Domain = DataSetLabelDomains.SpellSchool,
+                        Key = "evocation",
+                        Translations = new List<DataSetLabelTranslation>
+                        {
+                            new DataSetLabelTranslation { Language = DataSetLanguages.English, Value = "Evocation" },
+                            new DataSetLabelTranslation { Language = DataSetLanguages.French, Value = "Évocation" }
+                        }
+                    }
+                }
+            };
+
+            Assert.AreEqual("Évocation", dataSet.GetLabel(DataSetLabelDomains.SpellSchool, "evocation", "FR-fr"));
+            Assert.AreEqual("Evocation", dataSet.GetLabel(DataSetLabelDomains.SpellSchool, "evocation", "de-DE"));
+            Assert.AreEqual("Provided", dataSet.GetLabel(DataSetLabelDomains.SpellSchool, "missing", "de-DE", "Provided"));
+            Assert.AreEqual("missing", dataSet.GetLabel(DataSetLabelDomains.SpellSchool, "missing", "de-DE"));
+        }
+
+        [TestMethod]
+        public void DataSetLabelResolutionDoesNotCreateAMissingCatalog()
+        {
+            var dataSet = new SchemaDataSet();
+
+            Assert.AreEqual("evocation", dataSet.GetLabel(DataSetLabelDomains.SpellSchool, "evocation", DataSetLanguages.French));
+            Assert.AreEqual(0, dataSet.Labels.Count);
+        }
+
+        [TestMethod]
         public void LocalizationSupportsMultipleLanguagesAndCaseInsensitiveReplacement()
         {
             var localization = new ElementLocalization();

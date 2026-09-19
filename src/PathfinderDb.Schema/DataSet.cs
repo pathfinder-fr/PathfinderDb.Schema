@@ -19,6 +19,7 @@ namespace PathfinderDb.Schema
         public DataSet()
         {
             Sources = new List<Source>();
+            Labels = new List<DataSetLabel>();
             Spells = new List<Spell>();
             SpellLists = new List<SpellList>();
             Feats = new List<Feat>();
@@ -33,6 +34,10 @@ namespace PathfinderDb.Schema
         /// </summary>
         [XmlArray("sources")]
         public List<Source> Sources { get; set; }
+
+        [XmlArray("labels")]
+        [XmlArrayItem("label")]
+        public List<DataSetLabel> Labels { get; set; }
 
         [XmlArray("spells")]
         public List<Spell> Spells { get; set; }
@@ -72,6 +77,7 @@ namespace PathfinderDb.Schema
         public void Add(DataSet other)
         {
             Copy(() => other.Sources, () => Sources, t => Sources = t);
+            Copy(() => other.Labels, () => Labels, t => Labels = t);
             Copy(() => other.Feats, () => Feats, t => Feats = t);
             Copy(() => other.Spells, () => Spells, t => Spells = t);
             Copy(() => other.Monsters, () => Monsters, t => Monsters = t);
@@ -91,6 +97,17 @@ namespace PathfinderDb.Schema
             }
 
             target.AddRange(source);
+        }
+
+        public string GetLabel(string domain, string key, string language, string defaultValue = null)
+        {
+            var label = Labels?.Find(l => string.Equals(l.Domain, domain, StringComparison.Ordinal)
+                && string.Equals(l.Key, key, StringComparison.Ordinal));
+
+            var translation = label?.Translations?.Find(t => string.Equals(t.Language, language, StringComparison.OrdinalIgnoreCase))
+                ?? label?.Translations?.Find(t => string.Equals(t.Language, DataSetLanguages.English, StringComparison.OrdinalIgnoreCase));
+
+            return translation?.Value ?? defaultValue ?? key;
         }
     }
 }
