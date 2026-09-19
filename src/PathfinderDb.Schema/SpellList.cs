@@ -15,7 +15,10 @@ namespace PathfinderDb.Schema
 
         public class Ids
         {
-            public const string AntiPaladin = "antipaladin";
+            public const string Antipaladin = "antipaladin";
+
+            [System.Obsolete("Use Antipaladin.")]
+            public const string AntiPaladin = Antipaladin;
 
             public const string Bard = "bard";
 
@@ -41,7 +44,10 @@ namespace PathfinderDb.Schema
 
             public const string Magus = "magus";
 
-            public const string ElementalistWizard = "elementalistWizard";
+            public const string ElementalWizard = "elementalistWizard";
+
+            [System.Obsolete("Use ElementalWizard.")]
+            public const string ElementalistWizard = ElementalWizard;
 
             public const string Shaman = "shaman";
 
@@ -59,7 +65,10 @@ namespace PathfinderDb.Schema
 
             public const string Spirite = "spirite";
 
-            public const string SummonerUnchained = "summoner-unchained";
+            public const string UnchainedSummoner = "summoner-unchained";
+
+            [System.Obsolete("Use UnchainedSummoner.")]
+            public const string SummonerUnchained = UnchainedSummoner;
         }
     }
 }

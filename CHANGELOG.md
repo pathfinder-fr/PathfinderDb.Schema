@@ -2,12 +2,16 @@
 
 All notable changes to `PathfinderDb.Schema` are documented in this file.
 
+## Unreleased
+
+### Changed
+
+- Removed Archives of Nethys as a source identifier; it is a reference site,
+  not a dataset source.
+- Added official English spell-list constant names while preserving the
+  existing identifiers and obsolete constant aliases.
+
 ## [2.0.2] - 2026-09-19
-
-### Added
-
-- Added the `aonprd` source identifier for English Pathfinder 1e reference
-  data from [Archives of Nethys](https://aonprd.com/).
 
 ## [2.0.1] - 2026-09-19
 

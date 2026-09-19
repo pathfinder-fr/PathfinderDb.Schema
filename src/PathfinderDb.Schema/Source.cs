@@ -56,11 +56,6 @@ namespace PathfinderDb.Schema
         public static class Ids
         {
             /// <summary>
-            /// Source id for Archives of Nethys Pathfinder 1e English reference data.
-            /// </summary>
-            public const string ArchivesOfNethys = "aonprd";
-
-            /// <summary>
             /// Source id for pathfinder rpg rules.
             /// </summary>
             public const string PathfinderRpg = "pfrpg";

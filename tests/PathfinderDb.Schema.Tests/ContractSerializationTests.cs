@@ -193,14 +193,12 @@ namespace Pathfinder.DataSet
             CollectionAssert.AreEquivalent(
                 new[]
                 {
-                    "aonprd",
                     "bestiary5",
                     "bookofthedamned",
                     "codexmonstrueux"
                 },
                 new[]
                 {
-                    Source.Ids.ArchivesOfNethys,
                     Source.Ids.Bestiary5,
                     Source.Ids.BookOfTheDamned,
                     Source.Ids.CodexMonstrueux
@@ -227,7 +225,7 @@ namespace Pathfinder.DataSet
                     SpellList.Ids.Psychiste,
                     SpellList.Ids.SahirAfiyun,
                     SpellList.Ids.Spirite,
-                    SpellList.Ids.SummonerUnchained
+                    SpellList.Ids.UnchainedSummoner
                 });
         }
 
