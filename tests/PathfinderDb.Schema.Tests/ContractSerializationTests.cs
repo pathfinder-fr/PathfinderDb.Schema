@@ -325,6 +325,66 @@ namespace Pathfinder.DataSet
         }
 
         [TestMethod]
+        public void DataSetLabelsRoundTripThroughXmlAndJsonWithEquivalentValues()
+        {
+            var dataSet = new SchemaDataSet
+            {
+                Labels = new List<DataSetLabel>
+                {
+                    new DataSetLabel
+                    {
+                        Domain = DataSetLabelDomains.SpellSchool,
+                        Key = "evocation",
+                        Translations = new List<DataSetLabelTranslation>
+                        {
+                            new DataSetLabelTranslation { Language = DataSetLanguages.French, Value = "Évocation" },
+                            new DataSetLabelTranslation { Language = DataSetLanguages.English, Value = "Evocation" }
+                        }
+                    },
+                    new DataSetLabel
+                    {
+                        Domain = DataSetLabelDomains.CreatureType,
+                        Key = "outsider",
+                        Translations = new List<DataSetLabelTranslation>
+                        {
+                            new DataSetLabelTranslation { Language = DataSetLanguages.English, Value = "Outsider" }
+                        }
+                    }
+                }
+            };
+
+            string xml;
+            using (var writer = new StringWriter())
+            {
+                new XmlSerializer(typeof(SchemaDataSet)).Serialize(writer, dataSet);
+                xml = writer.ToString();
+            }
+
+            var json = JsonConvert.SerializeObject(dataSet);
+            var xmlRestored = SchemaDataSet.Load(new StringReader(xml));
+            var jsonRestored = JsonConvert.DeserializeObject<SchemaDataSet>(json);
+
+            Assert.AreEqual(2, xmlRestored.Labels.Count);
+            Assert.AreEqual(xmlRestored.Labels[0].Domain, jsonRestored.Labels[0].Domain);
+            Assert.AreEqual(xmlRestored.Labels[0].Key, jsonRestored.Labels[0].Key);
+            Assert.AreEqual(
+                xmlRestored.Labels[0].Translations[0].Language,
+                jsonRestored.Labels[0].Translations[0].Language);
+            Assert.AreEqual(
+                xmlRestored.Labels[0].Translations[0].Value,
+                jsonRestored.Labels[0].Translations[0].Value);
+            var xmlRoot = XElement.Parse(xml);
+            Assert.IsNotNull(xmlRoot.Element(XName.Get("labels", Namespaces.PathfinderDb)));
+            Assert.AreEqual(
+                "evocation",
+                (string)xmlRoot.Element(XName.Get("labels", Namespaces.PathfinderDb))
+                    .Element(XName.Get("label", Namespaces.PathfinderDb))
+                    .Attribute("key"));
+            StringAssert.Contains(json, "\"Labels\"");
+            StringAssert.Contains(json, "\"Domain\":\"spellSchool\"");
+        }
+
+        [TestMethod]
         public void LocalizationSupportsMultipleLanguagesAndCaseInsensitiveReplacement()
         {
             var localization = new ElementLocalization();

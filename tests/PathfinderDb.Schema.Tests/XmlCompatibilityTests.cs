@@ -51,6 +51,14 @@ namespace Pathfinder.DataSet
         }
 
         [TestMethod]
+        public void HistoricalDatasetWithoutLabelsShouldRemainReadable()
+        {
+            var dataSet = LoadHistorical("SpellDataset.xml");
+
+            Assert.AreEqual(0, dataSet.Labels.Count);
+        }
+
+        [TestMethod]
         public void CurrentSpellSampleShouldPreserveThePublicXmlContract()
         {
             var path = Path.Combine(AppContext.BaseDirectory, "Fixtures", "Current", "Spell.xml");
