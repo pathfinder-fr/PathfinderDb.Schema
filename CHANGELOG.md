@@ -2,6 +2,13 @@
 
 All notable changes to `PathfinderDb.Schema` are documented in this file.
 
+## [2.0.2] - 2026-09-19
+
+### Added
+
+- Added the `aonprd` source identifier for English Pathfinder 1e reference
+  data from [Archives of Nethys](https://aonprd.com/).
+
 ## [2.0.1] - 2026-09-19
 
 ### Added

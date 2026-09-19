@@ -193,12 +193,14 @@ namespace Pathfinder.DataSet
             CollectionAssert.AreEquivalent(
                 new[]
                 {
+                    "aonprd",
                     "bestiary5",
                     "bookofthedamned",
                     "codexmonstrueux"
                 },
                 new[]
                 {
+                    Source.Ids.ArchivesOfNethys,
                     Source.Ids.Bestiary5,
                     Source.Ids.BookOfTheDamned,
                     Source.Ids.CodexMonstrueux

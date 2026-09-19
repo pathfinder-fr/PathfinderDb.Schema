@@ -34,6 +34,14 @@ Le modèle principal est `DataSet`, qui peut contenir :
 
 Les éléments partagent la gestion des sources, références et localisations via `Element`. Le format XML utilise actuellement le namespace `urn:pathfinderDb`.
 
+### Référentiel anglais
+
+Les données Pathfinder 1e en anglais peuvent être référencées avec
+`Source.Ids.ArchivesOfNethys` (`aonprd`). La source correspond au site
+[Archives of Nethys](https://aonprd.com/), qui héberge les données ouvertes de
+référence. La librairie fournit uniquement l'identifiant de source et ne
+redistribue pas le contenu du site.
+
 Les sorties historiques de référence sont disponibles dans le dépôt frère :
 
 ```text

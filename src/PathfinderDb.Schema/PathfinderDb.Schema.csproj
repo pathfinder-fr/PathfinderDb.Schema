@@ -11,7 +11,7 @@
     <DebugSymbols>true</DebugSymbols>
 
     <PackageId>PathfinderDb.Schema</PackageId>
-    <VersionPrefix>2.0.1</VersionPrefix>
+    <VersionPrefix>2.0.2</VersionPrefix>
     <Authors>Pathfinder-fr.org</Authors>
     <Description>PathfinderDb project schema library.</Description>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
