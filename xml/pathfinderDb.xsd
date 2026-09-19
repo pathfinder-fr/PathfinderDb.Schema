@@ -49,6 +49,26 @@
           </xs:complexType>
         </xs:element>
 
+        <xs:element name="labels">
+          <xs:complexType>
+            <xs:sequence minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="label">
+                <xs:complexType>
+                  <xs:sequence minOccurs="0" maxOccurs="unbounded">
+                    <xs:element name="translation">
+                      <xs:complexType mixed="true">
+                        <xs:attribute ref="xml:lang" use="optional" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="domain" type="xs:string" use="required" />
+                  <xs:attribute name="key" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
         <xs:element name="feats">
           <xs:complexType>
             <xs:sequence minOccurs="0" maxOccurs="unbounded">

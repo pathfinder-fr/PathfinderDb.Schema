@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dataSet xmlns="urn:pathfinderDb" xml:lang="fr-FR">
+  <labels>
+    <label domain="spellSchool" key="evocation">
+      <translation xml:lang="fr-FR">Évocation</translation>
+      <translation xml:lang="en-US">Evocation</translation>
+    </label>
+  </labels>
+</dataSet>

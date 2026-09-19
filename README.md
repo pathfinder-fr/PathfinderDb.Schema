@@ -34,6 +34,21 @@ Le modèle principal est `DataSet`, qui peut contenir :
 
 Les éléments partagent la gestion des sources, références et localisations via `Element`. Le format XML utilise actuellement le namespace `urn:pathfinderDb`.
 
+### Catalogue de libellés localisés
+
+`DataSet.Labels` contient les libellés partagés des valeurs techniques
+normalisées. Chaque entrée est identifiée par un domaine et une clé, puis
+contient des traductions en `fr-FR`, `en-US` ou toute autre langue BCP 47.
+Les domaines initiaux sont `spellSchool`, `spellDescriptor`, `creatureType`,
+`creatureClimate`, `creatureEnvironment`, `featType`, `savingThrow`,
+`spellRangeUnit` et `timeUnit`.
+
+`DataSet.GetLabel(domain, key, language, defaultValue)` cherche d'abord la
+langue demandée, puis `en-US`, puis la valeur par défaut et enfin la clé
+technique. Les valeurs d'enum et les localisations propres à chaque élément
+restent inchangées. Le catalogue est optionnel afin de conserver la
+compatibilité avec les datasets existants.
+
 Les sorties historiques de référence sont disponibles dans le dépôt frère :
 
 ```text

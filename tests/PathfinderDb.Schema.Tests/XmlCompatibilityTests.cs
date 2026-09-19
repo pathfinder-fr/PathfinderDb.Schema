@@ -72,6 +72,19 @@ namespace Pathfinder.DataSet
         }
 
         [TestMethod]
+        public void CurrentLabelSampleShouldDeserializeAndResolveFrenchLabels()
+        {
+            var path = Path.Combine(AppContext.BaseDirectory, "Fixtures", "Current", "DataSetLabels.xml");
+            var dataSet = SchemaDataSet.Load(File.OpenRead(path));
+
+            Assert.AreEqual(1, dataSet.Labels.Count);
+            Assert.AreEqual(DataSetLabelDomains.SpellSchool, dataSet.Labels[0].Domain);
+            Assert.AreEqual(
+                "Évocation",
+                dataSet.GetLabel(DataSetLabelDomains.SpellSchool, "evocation", DataSetLanguages.French));
+        }
+
+        [TestMethod]
         public void HistoricalSpellDatasetShouldSurviveXmlRoundTrip()
         {
             var dataSet = LoadHistorical("SpellDataset.xml");

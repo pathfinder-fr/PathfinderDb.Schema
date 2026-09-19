@@ -4,6 +4,15 @@ All notable changes to `PathfinderDb.Schema` are documented in this file.
 
 ## Unreleased
 
+### Added
+
+- Added the optional dataset-level localized label catalog with XML and JSON
+  serialization, initial domain constants, and deterministic fallback
+  resolution.
+- Added an XML sample and schema declarations for shared localized labels.
+
+## Unreleased
+
 ### Changed
 
 - Removed Archives of Nethys as a source identifier; it is a reference site,
