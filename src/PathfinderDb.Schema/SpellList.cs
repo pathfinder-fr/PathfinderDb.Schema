@@ -44,6 +44,22 @@ namespace PathfinderDb.Schema
             public const string ElementalistWizard = "elementalistWizard";
 
             public const string Shaman = "shaman";
+
+            public const string Bloodrager = "bloodrager";
+
+            public const string Hypnotiseur = "hypnotiseur";
+
+            public const string Medium = "medium";
+
+            public const string Occultiste = "occultiste";
+
+            public const string Psychiste = "psychiste";
+
+            public const string SahirAfiyun = "sahir-afiyun";
+
+            public const string Spirite = "spirite";
+
+            public const string SummonerUnchained = "summoner-unchained";
         }
     }
 }

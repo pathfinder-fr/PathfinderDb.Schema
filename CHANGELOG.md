@@ -2,6 +2,16 @@
 
 All notable changes to `PathfinderDb.Schema` are documented in this file.
 
+## [2.0.1] - 2026-09-19
+
+### Added
+
+- Added source identifiers for `bestiary5`, `bookofthedamned` and
+  `codexmonstrueux`.
+- Added spell list identifiers for `bloodrager`, `hypnotiseur`, `medium`,
+  `occultiste`, `psychiste`, `sahir-afiyun`, `spirite` and
+  `summoner-unchained`.
+
 ## [2.0.0-preview.1] - 2026-09-17
 
 ### Changed

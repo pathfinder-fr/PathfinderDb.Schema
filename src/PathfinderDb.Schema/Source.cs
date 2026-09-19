@@ -81,6 +81,21 @@ namespace PathfinderDb.Schema
             public const string Bestiary4 = "bestiary4";
 
             /// <summary>
+            /// Source id for bestiary 5.
+            /// </summary>
+            public const string Bestiary5 = "bestiary5";
+
+            /// <summary>
+            /// Source id for Book of the Damned.
+            /// </summary>
+            public const string BookOfTheDamned = "bookofthedamned";
+
+            /// <summary>
+            /// Source id for Codex monstrueux.
+            /// </summary>
+            public const string CodexMonstrueux = "codexmonstrueux";
+
+            /// <summary>
             /// Source id for pathfinder advanced player guide.
             /// </summary>
             public const string AdvancedPlayerGuide = "apg";

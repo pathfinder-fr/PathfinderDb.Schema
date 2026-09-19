@@ -188,6 +188,48 @@ namespace Pathfinder.DataSet
         }
 
         [TestMethod]
+        public void PublicIdentifiersIncludeAllCorpusSourcesAndSpellLists()
+        {
+            CollectionAssert.AreEquivalent(
+                new[]
+                {
+                    "bestiary5",
+                    "bookofthedamned",
+                    "codexmonstrueux"
+                },
+                new[]
+                {
+                    Source.Ids.Bestiary5,
+                    Source.Ids.BookOfTheDamned,
+                    Source.Ids.CodexMonstrueux
+                });
+
+            CollectionAssert.AreEquivalent(
+                new[]
+                {
+                    "bloodrager",
+                    "hypnotiseur",
+                    "medium",
+                    "occultiste",
+                    "psychiste",
+                    "sahir-afiyun",
+                    "spirite",
+                    "summoner-unchained"
+                },
+                new[]
+                {
+                    SpellList.Ids.Bloodrager,
+                    SpellList.Ids.Hypnotiseur,
+                    SpellList.Ids.Medium,
+                    SpellList.Ids.Occultiste,
+                    SpellList.Ids.Psychiste,
+                    SpellList.Ids.SahirAfiyun,
+                    SpellList.Ids.Spirite,
+                    SpellList.Ids.SummonerUnchained
+                });
+        }
+
+        [TestMethod]
         public void LocalizationSupportsMultipleLanguagesAndCaseInsensitiveReplacement()
         {
             var localization = new ElementLocalization();
