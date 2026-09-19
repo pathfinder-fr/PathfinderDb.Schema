@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml.Linq;
@@ -227,6 +228,65 @@ namespace Pathfinder.DataSet
                     SpellList.Ids.Spirite,
                     SpellList.Ids.UnchainedSummoner
                 });
+        }
+
+        [TestMethod]
+        public void LabelSchemaExposesInitialDomainsAndXmlNames()
+        {
+            CollectionAssert.AreEqual(
+                new[]
+                {
+                    "spellSchool",
+                    "spellDescriptor",
+                    "creatureType",
+                    "creatureClimate",
+                    "creatureEnvironment",
+                    "featType",
+                    "savingThrow",
+                    "spellRangeUnit",
+                    "timeUnit"
+                },
+                new[]
+                {
+                    DataSetLabelDomains.SpellSchool,
+                    DataSetLabelDomains.SpellDescriptor,
+                    DataSetLabelDomains.CreatureType,
+                    DataSetLabelDomains.CreatureClimate,
+                    DataSetLabelDomains.CreatureEnvironment,
+                    DataSetLabelDomains.FeatType,
+                    DataSetLabelDomains.SavingThrow,
+                    DataSetLabelDomains.SpellRangeUnit,
+                    DataSetLabelDomains.TimeUnit
+                });
+
+            var label = new DataSetLabel
+            {
+                Domain = DataSetLabelDomains.SpellSchool,
+                Key = "evocation",
+                Translations = new List<DataSetLabelTranslation>
+                {
+                    new DataSetLabelTranslation
+                    {
+                        Language = DataSetLanguages.French,
+                        Value = "Évocation"
+                    }
+                }
+            };
+
+            var serializer = new XmlSerializer(typeof(DataSetLabel), Namespaces.PathfinderDb);
+            using (var writer = new StringWriter())
+            {
+                serializer.Serialize(writer, label);
+                var root = XElement.Parse(writer.ToString());
+                Assert.AreEqual("label", root.Name.LocalName);
+                Assert.AreEqual("spellSchool", (string)root.Attribute("domain"));
+                Assert.AreEqual("evocation", (string)root.Attribute("key"));
+                Assert.AreEqual(
+                    "fr-FR",
+                    (string)root.Element(XName.Get("translation", Namespaces.PathfinderDb))
+                        .Attribute(XNamespace.Xml + "lang"));
+                Assert.AreEqual("Évocation", root.Value);
+            }
         }
 
         [TestMethod]
